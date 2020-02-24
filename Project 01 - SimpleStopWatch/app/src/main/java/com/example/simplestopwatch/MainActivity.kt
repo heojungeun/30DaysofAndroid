@@ -37,22 +37,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun start(){
-        timerTask = timer(period = 10){// 0.1초에 한 번씩 호출
-            time++
-            val sec = time/100
-            val milli = time%100
-            val min = sec / 60
+        if (isRunning==false){
+            isRunning = true
+            timerTask = timer(period = 10){// 0.1초에 한 번씩 호출
+                time++
+                val sec = time/100
+                val milli = time%100
+                val min = sec / 60
 
-            runOnUiThread{
-                bind.seconds.text = "$sec"
-                bind.millisec.text = "$milli"
-                bind.minute.text = "$min"
+                runOnUiThread{
+                    bind.seconds.text = "$sec"
+                    bind.millisec.text = "$milli"
+                    bind.minute.text = "$min"
+                }
             }
         }
     }
 
     fun pause(){
-        timerTask?.cancel()
+        if (isRunning) {
+            timerTask?.cancel()
+            isRunning = false
+        }
+
     }
 
     fun reset(){
