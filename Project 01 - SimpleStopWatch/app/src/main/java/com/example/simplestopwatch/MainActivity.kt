@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
         time= 0
 
-        bind.minute.text = "00"
+        bind.seconds.text = "00"
         bind.millisec.text = "00"
         bind.minute.text = "00"
     }
