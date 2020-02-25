@@ -1,47 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity"
-    android:padding="25dp"
-    android:background="@android:color/black">
-
-    <EditText
-        android:id="@+id/editText"
-        android:text="이 광활한 우주에서\n이미 사라진 책을\n읽는다는 것"
-        android:textSize="35dp"
-        android:fontFamily="@font/sdkukdetopokkialt"
-        android:textColor="@android:color/white"
+<layout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="8"
-        android:lineSpacingExtra="15dp"
-        android:gravity="left"
-        android:background="@android:color/transparent"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity"
+        android:padding="25dp"
+        android:background="@android:color/black">
 
-    <Button
-        android:text="\@글씨체"
-        android:textColor="@android:color/white"
-        android:textSize="20dp"
-        android:fontFamily="@font/sdkukdetopokkialt"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="0.5"
-        android:background="@android:color/transparent"
-        android:layout_gravity="right" />
+        <EditText
+            android:id="@+id/editText"
+            android:text="이 광활한 우주에서\n이미 사라진 책을\n읽는다는 것"
+            android:textSize="35dp"
+            android:fontFamily="@font/binggraetwobold"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:lineSpacingExtra="15dp"
+            android:gravity="left"
+            android:background="@android:color/transparent"/>
 
-    <Button
-        android:id="@+id/changeBtn"
-        android:text="글씨체 바꾸기"
-        android:textColor="@android:color/white"
-        android:textSize="25dp"
-        android:fontFamily="@font/sdkukdetopokkialt"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@drawable/btnonlyborder"/>
+        <Button
+            android:text="\@글씨체"
+            android:textColor="@android:color/white"
+            android:textSize="20dp"
+            android:fontFamily="@font/binggraetwobold"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:background="@android:color/transparent"
+            android:layout_gravity="right" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/changeBtn"
+            android:text="글씨체 바꾸기"
+            android:textColor="@android:color/white"
+            android:textSize="25dp"
+            android:fontFamily="@font/binggraetwobold"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/btnonlyborder"/>
+
+    </LinearLayout>
+</layout>
