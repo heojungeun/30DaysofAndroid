@@ -6,13 +6,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:padding="20dp"
-    android:background="@android:color/white">
+    android:padding="25dp"
+    android:background="@android:color/black">
 
     <EditText
         android:id="@+id/editText"
         android:text="이 광활한 우주에서\n이미 사라진 책을\n읽는다는 것"
-        android:textSize="30dp"
+        android:textSize="35dp"
+        android:fontFamily="@font/sdkukdetopokkialt"
+        android:textColor="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="8"
@@ -21,13 +23,25 @@
         android:background="@android:color/transparent"/>
 
     <Button
+        android:text="\@글씨체"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        android:fontFamily="@font/sdkukdetopokkialt"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:background="@android:color/transparent"
+        android:layout_gravity="right" />
+
+    <Button
         android:id="@+id/changeBtn"
         android:text="글씨체 바꾸기"
         android:textColor="@android:color/white"
-        android:textSize="20dp"
+        android:textSize="25dp"
+        android:fontFamily="@font/sdkukdetopokkialt"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/colorPrimaryDark"/>
+        android:background="@drawable/btnonlyborder"/>
 
 </LinearLayout>
