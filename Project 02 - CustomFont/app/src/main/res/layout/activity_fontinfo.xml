@@ -25,7 +25,7 @@
 
             <TextView
                 android:id="@+id/font1"
-                android:text="산돌국대떡볶이체 Light"
+                android:text="산돌국대떡볶이체 Light - Link"
                 android:textSize="20dp"
                 android:textColor="@android:color/white"
                 android:fontFamily="@font/sdkukdetopokkialt"
@@ -35,7 +35,7 @@
 
             <TextView
                 android:id="@+id/font2"
-                android:text="Neo둥근모 Regular"
+                android:text="Neo둥근모 Regular - Link"
                 android:textSize="20dp"
                 android:textColor="@android:color/white"
                 android:fontFamily="@font/neodgm"
@@ -45,7 +45,7 @@
 
             <TextView
                 android:id="@+id/font3"
-                android:text="Mapo금빛나루"
+                android:text="Mapo금빛나루 - Link"
                 android:textSize="20dp"
                 android:textColor="@android:color/white"
                 android:fontFamily="@font/mapogoldenpier"
@@ -55,7 +55,7 @@
 
             <TextView
                 android:id="@+id/font4"
-                android:text="Gmarket Sans Light"
+                android:text="Gmarket Sans Light - Link"
                 android:textSize="20dp"
                 android:textColor="@android:color/white"
                 android:fontFamily="@font/gmarketsanslight"
@@ -65,7 +65,7 @@
 
             <TextView
                 android:id="@+id/font5"
-                android:text="배달의민족 을지로체"
+                android:text="배달의민족 을지로체 - Link"
                 android:textSize="20dp"
                 android:textColor="@android:color/white"
                 android:fontFamily="@font/bmeuljiro"
@@ -75,7 +75,7 @@
 
             <TextView
                 android:id="@+id/font6"
-                android:text="빙그레체 Bold"
+                android:text="빙그레체 Bold - Link"
                 android:textSize="20dp"
                 android:textColor="@android:color/white"
                 android:fontFamily="@font/binggraebold"
@@ -85,6 +85,16 @@
 
             <TextView
                 android:id="@+id/font7"
+                android:text="빙그레체2 Bold"
+                android:textSize="20dp"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/binggraetwobold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"/>
+
+            <TextView
+                android:id="@+id/font8"
                 android:text="빙그레 메로나체 Regular"
                 android:textSize="20dp"
                 android:textColor="@android:color/white"
@@ -94,21 +104,11 @@
                 android:layout_marginBottom="15dp"/>
 
             <TextView
-                android:id="@+id/font8"
+                android:id="@+id/font9"
                 android:text="빙그레 따옴체 Regular"
                 android:textSize="20dp"
                 android:textColor="@android:color/white"
                 android:fontFamily="@font/binggraetaom"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"/>
-
-            <TextView
-                android:id="@+id/font9"
-                android:text="빙그레체2 Bold"
-                android:textSize="20dp"
-                android:textColor="@android:color/white"
-                android:fontFamily="@font/binggraetwobold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"/>
