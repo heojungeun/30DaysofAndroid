@@ -1,5 +1,7 @@
 package com.example.customfont
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -14,6 +16,9 @@ class InfoActivity : AppCompatActivity(){
 
         bind = DataBindingUtil.setContentView(this, R.layout.activity_fontinfo)
 
-
+        bind.backbtn.setOnClickListener{
+            setResult(Activity.RESULT_OK)
+            finish()
+        }
     }
 }
