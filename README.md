@@ -11,3 +11,7 @@ Project 01 - [SimpleStopWatch](https://github.com/heojungeun/30DaysofAndroid/tre
 Project 02 - [CustomFont](https://github.com/heojungeun/30DaysofAndroid/tree/master/Project%2002%20-%20CustomFont)
 
 <img src="https://github.com/heojungeun/30DaysofAndroid/blob/master/Project%2002%20-%20CustomFont/project02%20-screenshot.gif" width="250">
+
+Project 03 - [PlayLocalVideo](https://github.com/heojungeun/30DaysofAndroid/tree/master/Project%2003%20-%20PlayLocalVideo)
+
+<img src="https://github.com/heojungeun/30DaysofAndroid/blob/master/Project%2003%20-%20PlayLocalVideo/project03%20-%20screenshot.gif" width="250">
