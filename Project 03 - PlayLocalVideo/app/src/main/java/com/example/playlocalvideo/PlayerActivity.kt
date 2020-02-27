@@ -32,6 +32,11 @@ class PlayerActivity : Activity() {
 
         STREAM_URL = intent.getStringExtra("filepath")
 
+        backbtn.setOnClickListener {
+            var intent = Intent(this@PlayerActivity, MainActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     private fun initializePlayer() {
@@ -78,7 +83,4 @@ class PlayerActivity : Activity() {
         if (Util.SDK_INT > 23) releasePlayer()
     }
 
-//    companion object {
-//        const val STREAM_URL = "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
-//    }
 }
