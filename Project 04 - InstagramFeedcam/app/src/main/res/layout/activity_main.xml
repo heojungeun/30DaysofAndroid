@@ -15,6 +15,7 @@
         android:paddingBottom="5dp">
         
         <ImageButton
+            android:id="@+id/camerabtn"
             android:background="@drawable/instagramcamera"
             android:layout_width="30dp"
             android:layout_height="30dp"
