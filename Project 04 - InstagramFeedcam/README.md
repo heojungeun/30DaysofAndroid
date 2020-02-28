@@ -1,4 +1,4 @@
-## Project 03 - PlayLocalVideo
+## Project 04 - InstagramFeedCam
 
 * 코드는 아래 링크를 참조했습니다.
 
