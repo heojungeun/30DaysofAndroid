@@ -15,3 +15,7 @@ Project 02 - [CustomFont](https://github.com/heojungeun/30DaysofAndroid/tree/mas
 Project 03 - [PlayLocalVideo](https://github.com/heojungeun/30DaysofAndroid/tree/master/Project%2003%20-%20PlayLocalVideo)
 
 <img src="https://github.com/heojungeun/30DaysofAndroid/blob/master/Project%2003%20-%20PlayLocalVideo/project03%20-%20screenshot.gif" width="250">
+
+Project 04 - [InstagramFeedcam](https://github.com/heojungeun/30DaysofAndroid/tree/master/Project%2004%20-%20InstagramFeedcam)
+
+<img src="https://github.com/heojungeun/30DaysofAndroid/blob/master/Project%2004%20-%20InstagramFeedcam/project04%20-%20screenshot.gif" width="250">
