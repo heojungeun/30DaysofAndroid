@@ -19,3 +19,8 @@ Project 03 - [PlayLocalVideo](https://github.com/heojungeun/30DaysofAndroid/tree
 Project 04 - [InstagramFeedcam](https://github.com/heojungeun/30DaysofAndroid/tree/master/Project%2004%20-%20InstagramFeedcam)
 
 <img src="https://github.com/heojungeun/30DaysofAndroid/blob/master/Project%2004%20-%20InstagramFeedcam/project04%20-%20screenshot.gif" width="250">
+
+Project 05 - [horizonRecyclerView](https://github.com/heojungeun/30DaysofAndroid/tree/master/Project%2005%20-%20horizonRecyclerView)
+
+<img src="https://github.com/heojungeun/30DaysofAndroid/blob/master/Project%2005%20-%20horizonRecyclerView/project05-screenshot.gif" width="250">
+
