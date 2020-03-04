@@ -17,24 +17,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"
+        android:layout_marginTop="30dp"
+        />
+
+    <TextView
+        android:text="오늘의 즐거움"
+        android:textSize="15dp"
+        android:fontFamily="@font/couturebld"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
         />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:padding="15dp">
+        android:fillViewport="true">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
+            android:scrollbars="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:newstedScrollingEnabled="false"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/list_item"/>
 
     </androidx.core.widget.NestedScrollView>
+
+
 
 
 
