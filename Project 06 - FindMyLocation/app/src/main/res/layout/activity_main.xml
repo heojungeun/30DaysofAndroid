@@ -6,16 +6,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/pj06wpaper">
+    android:background="@drawable/pj06wpaper"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Find"
+        android:textSize="30dp"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:padding="20dp"
+        android:backgroundTint="@color/colorPrimaryDark"/>
 
     <TextView
         android:id="@+id/quiztxt"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Find me"
-        android:textSize="30dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="내가 지금 있는 곳"
+        android:textSize="20dp"
         android:textColor="@android:color/white"
         android:gravity="center"
-        android:padding="20dp"/>
+        android:padding="10dp" />
+
+    <TextView
+        android:id="@+id/curlocation"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:text="현재 위치"
+        android:textSize="20dp"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:padding="10dp" />
+
+    <Button
+        android:id="@+id/gpsbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#54000000"
+        android:padding="20dp"
+        android:text="위치 찾기"
+        android:textSize="20dp"
+        android:textColor="@color/colorAccent"/>
 
 </LinearLayout>
