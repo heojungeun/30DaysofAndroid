@@ -21,8 +21,25 @@ class MainActivity : AppCompatActivity() {
 
     val PERMISSION_ID = 42
     lateinit var mFusedLocationClient : FusedLocationProviderClient
-//    lateinit var locationRequest : LocationRequest
-//    lateinit var locationCallback : LocationCallback
+
+    var quizlist = arrayOf(
+        "내가 지금 있는 곳",
+        "37.575746, 126.976817",
+        "튀김 소보로",
+        "동성로에서\n1과 2가 만나는 장소",
+        "보수동 책 제일 많은 ",
+        "충장로 ㄱㅈ극장"
+    )
+
+    var anslist = arrayOf(
+        "",
+        "37.575746, 126.976817",
+        "36.327707, 127.427367",
+        "35.865530, 128.593405",
+        "35.103121, 129.027498",
+        "35.149873, 126.912336"
+    )
+    var cnt = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,6 +94,10 @@ class MainActivity : AppCompatActivity() {
         override fun onLocationResult(locationResult: LocationResult) {
             var mLastLocation: Location = locationResult.lastLocation
             curlocation.setText(mLastLocation.latitude.toString()+" ,\n"+mLastLocation.longitude.toString())
+            if (cnt == 0 ){ //|| anslist[cnt]-0.005 <= cur <= anslist[cnt]+0.005
+                cnt += 1
+                quiztxt.setText(cnt.toString()+".\n"+quizlist[cnt])
+            }
         }
     }
 
