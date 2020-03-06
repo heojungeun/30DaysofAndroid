@@ -27,19 +27,21 @@ class MainActivity : AppCompatActivity() {
         "37.575746, 126.976817",
         "튀김 소보로",
         "동성로에서\n1과 2가 만나는 장소",
-        "보수동 책 제일 많은 ",
+        "보수동 책 제일 많은 골목",
         "충장로 ㄱㅈ극장"
     )
 
+
     var anslist = arrayOf(
-        "",
-        "37.575746, 126.976817",
-        "36.327707, 127.427367",
-        "35.865530, 128.593405",
-        "35.103121, 129.027498",
-        "35.149873, 126.912336"
+        arrayOf(0F,0F),
+        arrayOf(37.575746F, 126.976817F),
+        arrayOf(36.327707F, 127.427367F),
+        arrayOf(35.865530F, 128.593405F),
+        arrayOf(35.103121F, 129.027498F),
+        arrayOf(35.149873F, 126.912336F)
     )
     var cnt = 0
+    var again = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,6 +65,14 @@ class MainActivity : AppCompatActivity() {
                         requestNewLocationData()
                     }else{
                         curlocation.setText(location.latitude.toString()+" ,\n"+location.longitude.toString())
+                        if(cnt == 0 && again==0){
+                            quiztxt.setText((cnt+1).toString()+".\n"+quizlist[cnt]+"\n(다음 단계로 갈려면 버튼 누르기)")
+                            again = 1
+                        } else if((cnt==0 && again==1) || (anslist[cnt][0].minus(0.005) <= location.latitude && location.latitude <= anslist[cnt][0]+0.005
+                                    && anslist[cnt][1]-0.005 <= location.longitude && location.longitude <= anslist[cnt][1]+0.005)){
+                            cnt += 1
+                            quiztxt.setText((cnt+1).toString()+".\n"+quizlist[cnt])
+                        }
                     }
                 }
             } else {
@@ -94,10 +104,6 @@ class MainActivity : AppCompatActivity() {
         override fun onLocationResult(locationResult: LocationResult) {
             var mLastLocation: Location = locationResult.lastLocation
             curlocation.setText(mLastLocation.latitude.toString()+" ,\n"+mLastLocation.longitude.toString())
-            if (cnt == 0 ){ //|| anslist[cnt]-0.005 <= cur <= anslist[cnt]+0.005
-                cnt += 1
-                quiztxt.setText(cnt.toString()+".\n"+quizlist[cnt])
-            }
         }
     }
 
