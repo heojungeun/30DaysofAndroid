@@ -6,9 +6,102 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/Rcview"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/header_border"
+            android:paddingHorizontal="15dp"
+            android:paddingBottom="5dp">
+
+            <ImageButton
+                android:id="@+id/camerabtn"
+                android:background="@drawable/instagramcamera"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="left|center_vertical"/>
+
+            <TextView
+                android:text="stagram"
+                android:textSize="37sp"
+                android:textColor="@android:color/black"
+                android:fontFamily="@font/billabong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
+            <ImageButton
+                android:background="@drawable/instagramdirect"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="1dp"
+                android:layout_gravity="right|center_vertical"/>
+
+        </FrameLayout>
+
+        <ScrollView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/Rcview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/header_border"
+            android:padding="10dp">
+
+            <ImageView
+                android:src="@drawable/ic_home_black_24dp"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"/>
+
+            <ImageView
+                android:src="@drawable/instagramsearch"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_weight="1"
+                android:layout_gravity="center" />
+
+            <ImageView
+                android:src="@drawable/instagramaddwhite"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"/>
+
+            <ImageView
+                android:src="@drawable/instagramheart"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_weight="1"
+                android:layout_gravity="center" />
+
+            <ImageView
+                android:src="@drawable/instagramuser"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
