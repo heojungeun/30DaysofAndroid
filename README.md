@@ -24,3 +24,7 @@ Project 05 - [horizonRecyclerView](https://github.com/heojungeun/30DaysofAndroid
 
 <img src="https://github.com/heojungeun/30DaysofAndroid/blob/master/Project%2005%20-%20horizonRecyclerView/project05-screenshot.gif" width="250">
 
+Project 06 - [FindMyLocation](https://github.com/heojungeun/30DaysofAndroid/tree/master/Project%2006%20-%20FindMyLocation)
+
+<img src="https://github.com/heojungeun/30DaysofAndroid/blob/master/Project%2006%20-%20FindMyLocation/project06%20-%20screenshot.gif" width="250">
+
