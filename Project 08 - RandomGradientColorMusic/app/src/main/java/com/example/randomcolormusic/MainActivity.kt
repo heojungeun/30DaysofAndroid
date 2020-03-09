@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity() {
 
         var msPlayer: MediaPlayer? = MediaPlayer.create(this,R.raw.flashback)
 
+
+
         mbtn.setOnClickListener {
             randomColor()
             if (cnt == 50){
@@ -35,6 +37,7 @@ class MainActivity : AppCompatActivity() {
                 cnt += 1
             }
 
+            progress.progress = cnt
         }
     }
 
