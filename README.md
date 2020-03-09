@@ -28,3 +28,6 @@ Project 06 - [FindMyLocation](https://github.com/heojungeun/30DaysofAndroid/tree
 
 <img src="https://github.com/heojungeun/30DaysofAndroid/blob/master/Project%2006%20-%20FindMyLocation/project06%20-%20screenshot.gif" width="250">
 
+Project 07 - [PullToRefresh](https://github.com/heojungeun/30DaysofAndroid/tree/master/Project%2007%20-%20PullToRefresh)
+
+<img src="https://github.com/heojungeun/30DaysofAndroid/blob/master/Project%2007%20-%20PullToRefresh/project07%20-%20screenshot.gif" width="250">
