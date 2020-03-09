@@ -31,3 +31,7 @@ Project 06 - [FindMyLocation](https://github.com/heojungeun/30DaysofAndroid/tree
 Project 07 - [PullToRefresh](https://github.com/heojungeun/30DaysofAndroid/tree/master/Project%2007%20-%20PullToRefresh)
 
 <img src="https://github.com/heojungeun/30DaysofAndroid/blob/master/Project%2007%20-%20PullToRefresh/project07%20-%20screenshot.gif" width="250">
+
+Project 08 - [RandomGradientColorMusic](https://github.com/heojungeun/30DaysofAndroid/tree/master/Project%2008%20-%20RandomGradientColorMusic)
+
+<img src="https://github.com/heojungeun/30DaysofAndroid/blob/master/Project%2008%20-%20RandomGradientColorMusic/project08%20-%20screenshot.gif" width="250">
