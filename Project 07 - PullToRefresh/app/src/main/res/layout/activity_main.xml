@@ -1,107 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+<LinearLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="@drawable/header_border"
+        android:paddingHorizontal="15dp"
+        android:paddingBottom="5dp">
 
-        <FrameLayout
-            android:layout_width="match_parent"
+        <ImageButton
+            android:id="@+id/camerabtn"
+            android:background="@drawable/instagramcamera"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="left|center_vertical"/>
+
+        <TextView
+            android:text="stagram"
+            android:textSize="37sp"
+            android:textColor="@android:color/black"
+            android:fontFamily="@font/billabong"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/header_border"
-            android:paddingHorizontal="15dp"
-            android:paddingBottom="5dp">
+            android:layout_gravity="center"/>
 
-            <ImageButton
-                android:id="@+id/camerabtn"
-                android:background="@drawable/instagramcamera"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="left|center_vertical"/>
+        <ImageButton
+            android:background="@drawable/instagramdirect"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="1dp"
+            android:layout_gravity="right|center_vertical"/>
 
-            <TextView
-                android:text="stagram"
-                android:textSize="37sp"
-                android:textColor="@android:color/black"
-                android:fontFamily="@font/billabong"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"/>
+    </FrameLayout>
 
-            <ImageButton
-                android:background="@drawable/instagramdirect"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginBottom="1dp"
-                android:layout_gravity="right|center_vertical"/>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipelayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        </FrameLayout>
+<!--        <ScrollView-->
+<!--            android:id="@+id/Scrview"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
 
-        <ScrollView
-            xmlns:android="http://schemas.android.com/apk/res/android"
+<!--        </ScrollView>-->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/Rcview"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_height="wrap_content"/>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/Rcview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-        </ScrollView>
+    <LinearLayout
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/footer_border"
+        android:padding="10dp">
 
-        <LinearLayout
-            android:id="@+id/nav_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/header_border"
-            android:padding="10dp">
+        <ImageView
+            android:src="@drawable/ic_home_black_24dp"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"/>
 
-            <ImageView
-                android:src="@drawable/ic_home_black_24dp"
-                android:layout_width="0dp"
-                android:layout_height="35dp"
-                android:layout_weight="1"
-                android:layout_gravity="center"/>
+        <ImageView
+            android:src="@drawable/instagramsearch"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:layout_gravity="center" />
 
-            <ImageView
-                android:src="@drawable/instagramsearch"
-                android:layout_width="0dp"
-                android:layout_height="25dp"
-                android:layout_weight="1"
-                android:layout_gravity="center" />
+        <ImageView
+            android:src="@drawable/instagramaddwhite"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"/>
 
-            <ImageView
-                android:src="@drawable/instagramaddwhite"
-                android:layout_width="0dp"
-                android:layout_height="25dp"
-                android:layout_weight="1"
-                android:layout_gravity="center"/>
+        <ImageView
+            android:src="@drawable/instagramheart"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:layout_gravity="center" />
 
-            <ImageView
-                android:src="@drawable/instagramheart"
-                android:layout_width="0dp"
-                android:layout_height="25dp"
-                android:layout_weight="1"
-                android:layout_gravity="center" />
-
-            <ImageView
-                android:src="@drawable/instagramuser"
-                android:layout_width="0dp"
-                android:layout_height="25dp"
-                android:layout_weight="1"
-                android:layout_gravity="center"/>
-
-        </LinearLayout>
+        <ImageView
+            android:src="@drawable/instagramuser"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"/>
 
     </LinearLayout>
 
-
-
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</LinearLayout>

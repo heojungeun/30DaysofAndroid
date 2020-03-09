@@ -7,8 +7,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class RcvAdapter (private var items: ArrayList<Item>):
+class RcvAdapter (private var pitems: ArrayList<Item>):
         RecyclerView.Adapter<RcvAdapter.ViewHolder>(){
+
+    var items = pitems.toMutableList()
 
     override fun getItemCount(): Int {
         return items.size
@@ -16,7 +18,7 @@ class RcvAdapter (private var items: ArrayList<Item>):
 
     override fun onBindViewHolder(holder: RcvAdapter.ViewHolder, position: Int) {
         var view = holder as ViewHolder
-        var item = items[position]
+        var item = items.get(position)
         view.itemimg!!.setImageResource(item.img)
         view.itemid!!.setText(item.title)
     }
