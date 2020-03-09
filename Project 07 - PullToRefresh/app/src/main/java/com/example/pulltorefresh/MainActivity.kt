@@ -35,18 +35,18 @@ class MainActivity : AppCompatActivity() {
             feedlist.add(0,addlist[cnt])
             cnt+=1
             adapter.addAll(feedlist)
-            swipelayout.setRefreshing(false)
+            swipelayout.isRefreshing = false
         }
     }
 
     fun getdata(){
-        feedlist.add(Item(R.drawable.photo1,"heo_official"))
-        feedlist.add(Item(R.drawable.photo2, "kotlin17"))
-        feedlist.add(Item(R.drawable.photo3, "java_"))
+        feedlist.add(Item(R.drawable.photo1,"heo_official",R.drawable.photo3))
+        feedlist.add(Item(R.drawable.photo2, "kotlin17",R.drawable.profile1))
+        feedlist.add(Item(R.drawable.photo3, "java_",R.drawable.profile2))
 
-        addlist.add(Item(R.drawable.feed1, "another_user"))
-        addlist.add(Item(R.drawable.feed2, "heo_official"))
-        addlist.add(Item(R.drawable.feed3, "kotlin20"))
+        addlist.add(Item(R.drawable.feed1, "another_user",R.drawable.profile3))
+        addlist.add(Item(R.drawable.feed2, "heo_official",R.drawable.photo3))
+        addlist.add(Item(R.drawable.feed3, "kotlin17",R.drawable.profile1))
     }
 
 

@@ -21,6 +21,7 @@ class RcvAdapter (private var pitems: ArrayList<Item>):
         var item = items.get(position)
         view.itemimg!!.setImageResource(item.img)
         view.itemid!!.setText(item.title)
+        view.itemprofile!!.setImageResource(item.profile)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RcvAdapter.ViewHolder {
@@ -31,9 +32,11 @@ class RcvAdapter (private var pitems: ArrayList<Item>):
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v){
         var itemimg : ImageView? = null
         var itemid : TextView? = null
+        var itemprofile : ImageView? = null
         init {
             itemimg = v.findViewById(R.id.itemphoto)
             itemid = v.findViewById(R.id.itemid)
+            itemprofile = v.findViewById(R.id.itemprofile)
         }
     }
 
