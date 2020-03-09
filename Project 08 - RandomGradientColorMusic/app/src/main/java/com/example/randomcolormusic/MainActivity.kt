@@ -2,6 +2,7 @@ package com.example.randomcolormusic
 
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -11,19 +12,33 @@ class MainActivity : AppCompatActivity() {
 
     private val colors = IntArray(5)
     private val rnd = java.util.Random()
+    private var cnt = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        randomColor()
+        var msPlayer: MediaPlayer? = MediaPlayer.create(this,R.raw.flashback)
 
         mbtn.setOnClickListener {
             randomColor()
+            if (cnt == 50){
+                // music pause
+                msPlayer?.pause()
+                cnt = 0
+            }
+            else{
+                if(cnt == 0){
+                    // music play
+                    msPlayer?.start()
+                }
+                cnt += 1
+            }
+
         }
     }
 
-    fun randomColor(){
+    private fun randomColor(){
         for (i in 0..4)
             colors[i] = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256),rnd.nextInt(256))
 
