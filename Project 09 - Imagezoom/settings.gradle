@@ -1,0 +1,2 @@
+rootProject.name='ImageZoom'
+include ':app'
