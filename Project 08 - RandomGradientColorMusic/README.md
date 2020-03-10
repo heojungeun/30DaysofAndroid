@@ -18,8 +18,8 @@
 
   [reflink4]: https://www.tutorialspoint.com/how-to-create-circular-progressbar-in-android
   
-* 음악 출처
+* 음악 출처 (출처에서 다운받아 res/raw에 flashback으로 저장)
 
-  * [FlashBack by Jeff Kaale][ref]
+  * [FlashBack by Jeff Kaale][ref] 
   
   [ref]:https://soundcloud.com/jeff-kaale/flashback
