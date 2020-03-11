@@ -39,3 +39,7 @@ Project 08 - [RandomGradientColorMusic](https://github.com/heojungeun/30DaysofAn
 Project 09 - [Imagezoom](https://github.com/heojungeun/30DaysofAndroid/tree/master/Project%2009%20-%20Imagezoom)
 
 <img src="https://github.com/heojungeun/30DaysofAndroid/blob/master/Project%2009%20-%20Imagezoom/project09%20-%20screenshot.gif" width="250">
+
+Project 10 - [VideoBackground](https://github.com/heojungeun/30DaysofAndroid/tree/master/Project%2010%20-%20VideoBackground)
+
+<img src="https://github.com/heojungeun/30DaysofAndroid/blob/master/Project%2010%20-%20VideoBackground/project10%20-%20screenshot.gif" width="250">
