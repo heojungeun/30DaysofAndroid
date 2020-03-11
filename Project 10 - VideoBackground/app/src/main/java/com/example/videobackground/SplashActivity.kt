@@ -10,7 +10,7 @@ class SplashActivity : Activity() {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_main)
         try {
-            Thread.sleep(3000)
+            Thread.sleep(1000)
         }catch (e:InterruptedException){
             e.printStackTrace()
         }
