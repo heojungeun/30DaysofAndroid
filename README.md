@@ -47,3 +47,7 @@ Project 10 - [VideoBackground](https://github.com/heojungeun/30DaysofAndroid/tre
 Project 11 - [LoginAnimation](https://github.com/heojungeun/30DaysofAndroid/tree/master/Project%2011%20-%20LoginAnimation)
 
 <img src="https://github.com/heojungeun/30DaysofAndroid/blob/master/Project%2011%20-%20LoginAnimation/project11%20-%20screenshot.gif" width="250">
+
+Project 12 - [SlotMachine](https://github.com/heojungeun/30DaysofAndroid/tree/master/Project%2012%20-%20SlotMachine)
+
+<img src="https://github.com/heojungeun/30DaysofAndroid/blob/master/Project%2012%20-%20SlotMachine/project12%20-%20screenshot.gif" width="250">
