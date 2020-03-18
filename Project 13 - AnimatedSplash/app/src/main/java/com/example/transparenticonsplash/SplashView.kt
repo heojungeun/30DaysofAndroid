@@ -50,26 +50,19 @@ class SplashView : View {
     val DEFAULT_DURATION = 500
     val DEFAULT_REMOVE_FROM_PARENT_ON_END = true
 
-    private val PAINT_STROKE_WIDTH =
-        2 // give a stroke width to the paint so that the rectangles get a little overlap
+    private val PAINT_STROKE_WIDTH = 2 // give a stroke width to the paint so that the rectangles get a little overlap
 
+    // most important item, cannot be null
+    private var mIcon: Drawable? = null
+    private var mHoleFillColor = DEFAULT_HOLE_FILL_COLOR // color to be shown in the transparent hole before the animation starts
 
-    private var mIcon // most important item, cannot be null
-            : Drawable? = null
-    private var mHoleFillColor =
-        DEFAULT_HOLE_FILL_COLOR // color to be shown in the transparent hole before the animation starts
+    private var mIconColor = DEFAULT_ICON_COLOR // should be the same color of as the icon background
 
-    private var mIconColor =
-        DEFAULT_ICON_COLOR // should be the same color of as the icon background
+    // total duration, in ms, of the animation
+    private var mDuration = DEFAULT_DURATION.toLong()
+    private var mRemoveFromParentOnEnd = true // a flag for removing the view from its parent once the animation is over
 
-    private var mDuration = DEFAULT_DURATION // total duration, in ms, of the animation
-        .toLong()
-    private var mRemoveFromParentOnEnd =
-        true // a flag for removing the view from its parent once the animation is over
-
-    private var mCurrentScale =
-        1f // used for keeping track of how far along the animation we are
-
+    private var mCurrentScale = 1f // used for keeping track of how far along the animation we are
 
     // cache some dimension values to make the onDraw method simpler looking
     private var mWidth = 0  // cache some dimension values to make the onDraw method simpler looking
