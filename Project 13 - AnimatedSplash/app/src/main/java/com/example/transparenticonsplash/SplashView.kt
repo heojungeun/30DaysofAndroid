@@ -45,7 +45,7 @@ class SplashView : View {
         setupAttributes(attrs)
     }
 
-    val DEFAULT_HOLE_FILL_COLOR: Int = android.graphics.Color.WHITE
+    val DEFAULT_HOLE_FILL_COLOR: Int = android.graphics.Color.TRANSPARENT
     val DEFAULT_ICON_COLOR: Int = android.graphics.Color.rgb(23, 169, 229)
     val DEFAULT_DURATION = 500
     val DEFAULT_REMOVE_FROM_PARENT_ON_END = true

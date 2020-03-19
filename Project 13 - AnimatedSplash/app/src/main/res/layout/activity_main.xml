@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:text="Hello!!"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="30sp"
-        android:gravity="center"
+    <com.example.transparenticonsplash.SplashView
+        android:id="@+id/splash_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        app:icon="@drawable/ictwitter3"
+        app:iconColor="@color/twitter_blue"
+        app:duration="500"
+        app:holeFillColor="@android:color/transparent"
+        app:removeFromParentOnEnd="true"/>
 
 </LinearLayout>
