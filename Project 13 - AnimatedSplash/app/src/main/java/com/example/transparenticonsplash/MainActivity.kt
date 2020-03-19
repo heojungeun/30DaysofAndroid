@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import com.example.transparenticonsplash.R.layout
 import com.example.transparenticonsplash.SplashView.ISplashListener
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -29,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         // change the DO_XML variable to switch between code and xml
         if (DO_XML) {
             // inflate the view from XML and then get a reference to it
-            setContentView(layout.activity_main)
+            setContentView(R.layout.activity_main)
             mMainView = main_view as ViewGroup
             mSplashView = splash_view as SplashView
         } else {
@@ -43,17 +42,15 @@ class MainActivity : AppCompatActivity() {
         startLoadingData()
 
 
-
     }
 
     private fun startLoadingData() {
         // finish "loading data" in a random time between 1 and 3 seconds
         val random = Random()
-        var delaynum = 1000 + random.nextInt(2000)
+        var delaynum = 1000L
         Handler().postDelayed({
             onLoadingDataEnded()
-        }, delaynum.toLong())
-
+        }, delaynum)
     }
 
     private fun onLoadingDataEnded() {
@@ -61,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         // now that our data is loaded we can initialize the content view
         mContentView = ContentView(context)
         // add the content view to the background
-//        mMainView!!.addView(mContentView, 0)
+        mMainView!!.addView(mContentView, 0)
 
         // start the splash animation
         mSplashView!!.splashAndDisappear(object : ISplashListener {
