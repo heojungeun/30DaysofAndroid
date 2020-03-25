@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:id="@+id/totalpage"
+    tools:context=".MainActivity"
+    android:background="@android:color/black">
 
     <LinearLayout
         android:id="@+id/hiddenMenu"
@@ -13,7 +16,9 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:background="@android:color/black"
-        app:layout_constraintBottom_toTopOf="@+id/mainPage">
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:visibility="gone">
 
         <TextView
             android:text="Current News"
@@ -26,7 +31,7 @@
         <TextView
             android:text="Popular"
             android:textSize="25sp"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/secondary_text_dark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5sp"/>
@@ -34,7 +39,7 @@
         <TextView
             android:text="Fresh"
             android:textSize="25sp"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/secondary_text_dark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5sp"/>
@@ -42,7 +47,7 @@
         <TextView
             android:text="Trending"
             android:textSize="25sp"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/secondary_text_dark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5sp"/>
@@ -50,7 +55,7 @@
         <TextView
             android:text="Preferences"
             android:textSize="25sp"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/secondary_text_dark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -93,12 +98,14 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@android:color/black">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="@android:color/black">
 
                 <FrameLayout
                     android:layout_width="match_parent"
@@ -127,8 +134,8 @@
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/itemprofile"
                             android:src="@drawable/ic_launcher_background"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
                             android:layout_marginRight="10dp"/>
 
                         <LinearLayout
@@ -139,7 +146,7 @@
                             <TextView
                                 android:id="@+id/item_title"
                                 android:text="what is this?"
-                                android:textSize="25sp"
+                                android:textSize="20sp"
                                 android:textColor="@android:color/white"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
@@ -182,8 +189,8 @@
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/itemprofile2"
                             android:src="@drawable/pf1"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
                             android:layout_marginRight="10dp"/>
 
                         <LinearLayout
@@ -194,7 +201,7 @@
                             <TextView
                                 android:id="@+id/item_title2"
                                 android:text="The Twilight"
-                                android:textSize="25sp"
+                                android:textSize="20sp"
                                 android:textColor="@android:color/white"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
@@ -239,8 +246,8 @@
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/itemprofile3"
                             android:src="@drawable/pf3"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
                             android:layout_marginRight="10dp"/>
 
                         <LinearLayout
@@ -251,7 +258,7 @@
                             <TextView
                                 android:id="@+id/item_title3"
                                 android:text="where am I?"
-                                android:textSize="25sp"
+                                android:textSize="20sp"
                                 android:textColor="@android:color/white"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
@@ -308,7 +315,7 @@
                             <TextView
                                 android:id="@+id/item_title4"
                                 android:text="The book!"
-                                android:textSize="25sp"
+                                android:textSize="20sp"
                                 android:textColor="@android:color/white"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"/>
@@ -332,4 +339,4 @@
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
