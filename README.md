@@ -55,3 +55,7 @@ Project 12 - [SlotMachine](https://github.com/heojungeun/30DaysofAndroid/tree/ma
 Project 13 - [AnimatedSplash](https://github.com/heojungeun/30DaysofAndroid/tree/master/Project%2013%20-%20AnimatedSplash)
 
 <img src="https://github.com/heojungeun/30DaysofAndroid/blob/master/Project%2013%20-%20AnimatedSplash/project13%20-%20screenshot.gif" width="250">
+
+Project 14 - [SlideMenu](https://github.com/heojungeun/30DaysofAndroid/tree/master/Project%2014%20-%20SlideMenu)
+
+<img src="https://github.com/heojungeun/30DaysofAndroid/blob/master/Project%2014%20-%20SlideMenu/project14%20-%20screenshot.gif" width="250">
