@@ -1,0 +1,2 @@
+rootProject.name='Tumblrmenu'
+include ':app'
