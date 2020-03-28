@@ -5,66 +5,79 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#364261">
 
-    <FrameLayout
-        android:id="@+id/leftside"
-        android:layout_width="wrap_content"
-        android:layout_height="450dp"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/rightside">
+        app:layout_constraintRight_toRightOf="parent">
 
-        <ImageView
-            android:src="@drawable/m1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"/>
+        <FrameLayout
+            android:id="@+id/leftside"
+            android:layout_width="0dp"
+            android:layout_height="450dp"
+            android:layout_weight="1">
 
-        <ImageView
-            android:src="@drawable/m3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"/>
+            <ImageView
+                android:id="@+id/textbtn"
+                android:src="@drawable/m1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center_horizontal"/>
 
-        <ImageView
-            android:src="@drawable/m5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"/>
+            <ImageView
+                android:id="@+id/quotebtn"
+                android:src="@drawable/m3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
 
-    </FrameLayout>
+            <ImageView
+                android:id="@+id/chatbtn"
+                android:src="@drawable/m5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"/>
 
-    <FrameLayout
-        android:id="@+id/rightside"
-        android:layout_width="wrap_content"
-        android:layout_height="450dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/leftside">
+        </FrameLayout>
 
-        <ImageView
-            android:src="@drawable/m2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"/>
+        <FrameLayout
+            android:id="@+id/rightside"
+            android:layout_width="0dp"
+            android:layout_height="450dp"
+            android:layout_weight="1">
 
-        <ImageView
-            android:src="@drawable/m4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"/>
+            <ImageView
+                android:id="@+id/photobtn"
+                android:src="@drawable/m2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center_horizontal"/>
 
-        <ImageView
-            android:src="@drawable/m6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"/>
+            <ImageView
+                android:id="@+id/linkbtn"
+                android:src="@drawable/m4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
 
-    </FrameLayout>
+            <ImageView
+                android:id="@+id/videobtn"
+                android:src="@drawable/m6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
 
     <Button
-        android:id="@+id/newvermindbtn"
+        android:id="@+id/backbtn"
         android:text="Nevermind"
         android:textSize="18sp"
         android:textStyle="bold"
