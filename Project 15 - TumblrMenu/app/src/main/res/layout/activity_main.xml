@@ -4,14 +4,160 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/colorAccent">
 
-    <FrameLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:layout_marginHorizontal="20dp"
+                android:padding="15dp">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:src="@drawable/ic_launcher_background"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"/>
+
+                    <TextView
+                        android:text="thumblr_whatisit"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"/>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:src="@drawable/share"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right|center_vertical"/>
+
+            </FrameLayout>
+
+            <ImageView
+                android:src="@drawable/img1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:layout_marginHorizontal="5dp"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:layout_marginHorizontal="20dp"
+                android:padding="15dp">
+
+                <TextView
+                    android:text="First Desgin"
+                    android:textSize="17sp"
+                    android:textColor="@android:color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"/>
+
+                <TextView
+                    android:text="#COLOR"
+                    android:textSize="17sp"
+                    android:textColor="@android:color/darker_gray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:padding="15dp"
+                android:background="#F7F7F7">
+
+                <TextView
+                    android:text="6 notes"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/darker_gray"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"/>
+
+                <ImageView
+                    android:src="@drawable/repost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <ImageView
+                    android:src="@drawable/heart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="65dp"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/colorAccent"
+        android:gravity="center_vertical">
 
+        <ImageView
+            android:src="@drawable/homewhite"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"/>
 
-    </FrameLayout>
+        <ImageView
+            android:src="@drawable/search"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/newpost"
+            android:src="@drawable/newpost"
+            android:background="@android:color/transparent"
+            android:layout_gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:src="@drawable/my"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:src="@drawable/thunder"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
