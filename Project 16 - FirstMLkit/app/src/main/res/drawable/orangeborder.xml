@@ -7,14 +7,14 @@
 
     <!-- 테두리 내부 여백 설정 -->
     <padding
-        android:bottom="8dp"
-        android:left="8dp"
-        android:right="8dp"
-        android:top="8dp" />
+        android:bottom="1dp"
+        android:left="5dp"
+        android:right="5dp"
+        android:top="1dp" />
 
     <!-- 테두리 설정: 두께, 색상 -->
     <stroke
-        android:width="5dp"
-        android:color="@android:color/white" />
+        android:width="2dp"
+        android:color="#D7591A" />
 
 </shape>
