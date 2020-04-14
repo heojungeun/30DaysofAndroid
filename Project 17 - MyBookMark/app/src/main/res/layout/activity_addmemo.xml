@@ -42,33 +42,68 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:background="@drawable/bottomborder">
 
         <TextView
             android:text="책 이름 "
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"/>
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingHorizontal="10dp"
+            android:background="@drawable/rightborder"/>
 
         <EditText
+            android:id="@+id/edit_title_txtview"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:background="@android:color/transparent"/>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/bottomborder">
+
         <ImageButton
-            android:src="@drawable/cameravio"
-            android:layout_width="30dp"
+            android:id="@+id/likebtn"
+            android:src="@drawable/ic_thumb_up_black_25dp"
+            android:layout_width="25dp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
             android:background="@android:color/transparent"
-            android:layout_gravity=""/>
+            android:layout_marginRight="10dp"/>
+
+        <ImageButton
+            android:id="@+id/hatebtn"
+            android:src="@drawable/ic_thumb_down_black_25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:layout_marginRight="10dp"/>
+
+        <ImageButton
+            android:id="@+id/photobtn"
+            android:src="@drawable/ic_photo_camera_black_27dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:layout_marginRight="10dp"/>
 
     </LinearLayout>
 
     <EditText
+        android:id="@+id/edit_content_txtview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/transparent"/>

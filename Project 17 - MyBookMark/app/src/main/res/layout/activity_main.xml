@@ -29,7 +29,7 @@
                 android:layout_gravity="center_vertical" />
 
             <ImageButton
-                android:src="@drawable/myprofile"
+                android:src="@drawable/ic_account_circle_black_30dp"
                 android:background="@android:color/transparent"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
@@ -75,10 +75,10 @@
 
         <ImageButton
             android:id="@+id/addbtn"
-            android:src="@drawable/addbtn"
+            android:src="@drawable/ic_add_black_30dp"
             android:background="@android:color/transparent"
-            android:layout_width="23sp"
-            android:layout_height="23sp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_gravity="right|center_vertical"/>
 
     </FrameLayout>
