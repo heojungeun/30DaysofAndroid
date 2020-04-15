@@ -7,12 +7,13 @@ import androidx.room.RoomDatabase
 import com.example.mybookmark.data.local.dao.MemoDao
 import com.example.mybookmark.data.model.Memo
 
-@Database(entities = [Memo::class], version = 1)
+@Database(entities = [Memo::class], version = 1, exportSchema = false)
 abstract class MemoDatabase: RoomDatabase() {
 
     abstract fun memoDao(): MemoDao
 
     companion object {
+
         private var INSTANCE : MemoDatabase? = null
 
         fun getInstance(context: Context): MemoDatabase? {

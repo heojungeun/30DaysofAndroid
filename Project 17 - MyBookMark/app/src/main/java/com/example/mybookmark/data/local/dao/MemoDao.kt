@@ -15,4 +15,7 @@ interface MemoDao {
 
     @Delete
     fun delete(memo: Memo)
+
+    @Query("DELETE FROM memo")
+    fun deleteAll()
 }
