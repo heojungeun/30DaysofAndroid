@@ -1,7 +1,8 @@
-package com.example.mybookmark
+package com.example.mybookmark.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.mybookmark.R
 
 class MainActivity : AppCompatActivity() {
 

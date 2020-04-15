@@ -1,7 +1,8 @@
-package com.example.mybookmark
+package com.example.mybookmark.data.local.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.mybookmark.data.model.Memo
 
 @Dao
 interface MemoDao {

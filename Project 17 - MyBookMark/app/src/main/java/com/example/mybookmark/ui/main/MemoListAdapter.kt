@@ -1,4 +1,4 @@
-package com.example.mybookmark
+package com.example.mybookmark.ui.main
 
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +10,11 @@ class MemoListAdapter : RecyclerView.Adapter<MemoListAdapter.ViewHolder>(){
         TODO("Not yet implemented")
     }
 
-    override fun onBindViewHolder(holder: MemoListAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         TODO("Not yet implemented")
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MemoListAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         TODO("Not yet implemented")
     }
 
