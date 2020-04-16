@@ -67,6 +67,14 @@
         android:layout_height="wrap_content"
         android:padding="10dp">
 
+        <ImageButton
+            android:id="@+id/delbtn"
+            android:src="@drawable/ic_delete_black_30dp"
+            android:background="@android:color/transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|center_vertical"/>
+
         <TextView
             android:text="3개의 메모"
             android:layout_width="wrap_content"
@@ -77,8 +85,8 @@
             android:id="@+id/addbtn"
             android:src="@drawable/ic_add_black_30dp"
             android:background="@android:color/transparent"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="right|center_vertical"/>
 
     </FrameLayout>
