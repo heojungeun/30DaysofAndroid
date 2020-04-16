@@ -47,7 +47,7 @@ class MemoListAdapter(val memoItemClick: (Memo) -> Unit, val memoItemLongClick: 
         }
     }
 
-    fun setMemo(memos : List<Memo>){
+    fun setMemos(memos : List<Memo>){
         this.memos = memos
         notifyDataSetChanged()
     }

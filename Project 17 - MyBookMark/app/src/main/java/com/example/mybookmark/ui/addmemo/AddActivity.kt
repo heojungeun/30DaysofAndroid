@@ -13,4 +13,11 @@ class AddActivity: AppCompatActivity(){
 
     }
 
+    companion object {
+        const val EXTRA_BOOK_NAME = "EXTRA_BOOK_NAME"
+        const val EXTRA_BOOK_CONTENT = "EXTRA_BOOK_CONTENT"
+        const val EXTRA_BOOK_TIME = "EXTRA_BOOK_TIME"
+        // photo를 어떻게 넘길것인가..
+    }
+
 }
