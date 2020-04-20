@@ -13,7 +13,9 @@ class MemoListAdapter(val memoItemClick: (Memo) -> Unit, val memoItemLongClick: 
 
     private var memos: List<Memo> = listOf()
 
-    override fun getItemCount(): Int = memos.size
+    override fun getItemCount(): Int{
+        return memos.size
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
