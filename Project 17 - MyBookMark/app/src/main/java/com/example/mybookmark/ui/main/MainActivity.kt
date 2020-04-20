@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
         builder.setMessage("선택된 항목을 삭제하겠습니다.").setNegativeButton("취소"){_, _->}
             .setPositiveButton("삭제"){_,_->
-                memoViewModel.delete(memo)
+                memoViewModel.delete(memo.id!!)
             }
         builder.show()
     }

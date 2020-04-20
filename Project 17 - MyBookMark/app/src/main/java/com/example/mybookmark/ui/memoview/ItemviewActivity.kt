@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProviders
 import com.example.mybookmark.R
 import com.example.mybookmark.data.model.Memo
 import com.example.mybookmark.ui.addmemo.AddActivity
@@ -21,6 +22,8 @@ class ItemviewActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_memoview)
 
+        memoViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+
         if(intent != null && intent.hasExtra(EXTRA_BOOK_NAME) && intent.hasExtra(EXTRA_BOOK_CONTENT)
             && intent.hasExtra(EXTRA_BOOK_TIME)){
             edit_title_txtview.setText(intent.getStringExtra(EXTRA_BOOK_NAME))
@@ -33,7 +36,9 @@ class ItemviewActivity: AppCompatActivity() {
         }
 
         delbtn.setOnClickListener {
-            deleteDialog(Memo(id, EXTRA_BOOK_TIME, EXTRA_BOOK_NAME, EXTRA_BOOK_CONTENT, ""))
+            if (id != null) {
+                deleteDialog(id!!)
+            }
         }
 
         editbtn.setOnClickListener {
@@ -49,11 +54,12 @@ class ItemviewActivity: AppCompatActivity() {
 
     }
 
-    private fun deleteDialog(memo: Memo){
+    private fun deleteDialog(id: Long){
         val builder = AlertDialog.Builder(this)
         builder.setMessage("메모를 삭제하겠습니다.").setNegativeButton("취소"){_, _->}
             .setPositiveButton("삭제"){_,_->
-                memoViewModel.delete(memo)
+                memoViewModel.delete(id)
+                finish()
             }
         builder.show()
     }

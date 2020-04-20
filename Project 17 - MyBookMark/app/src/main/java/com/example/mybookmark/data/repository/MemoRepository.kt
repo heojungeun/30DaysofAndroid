@@ -35,13 +35,13 @@ class MemoRepository(application: Application) : CoroutineScope{
         }
     }
 
-    fun delete(memo: Memo){
-        launch { deleteBG(memo) }
+    fun delete(id : Long){
+        launch { deleteBG(id) }
     }
 
-    private suspend fun deleteBG(memo: Memo){
+    private suspend fun deleteBG(id: Long){
         withContext(Dispatchers.IO){
-            memoDao?.delete(memo)
+            memoDao?.delete(id)
         }
     }
 

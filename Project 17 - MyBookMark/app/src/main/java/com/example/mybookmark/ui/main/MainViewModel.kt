@@ -15,7 +15,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         repository.insert(memo)
     }
 
-    fun delete(memo: Memo) {
-        repository.delete(memo)
+    fun delete(bid : Long) {
+        repository.delete(bid)
     }
 }
