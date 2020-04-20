@@ -29,6 +29,7 @@
                 android:layout_gravity="center_vertical" />
 
             <ImageButton
+                android:id="@+id/mybtowerbtn"
                 android:src="@drawable/ic_account_circle_black_30dp"
                 android:background="@android:color/transparent"
                 android:layout_width="45dp"
@@ -76,7 +77,8 @@
             android:layout_gravity="left|center_vertical"/>
 
         <TextView
-            android:text="3개의 메모"
+            android:id="@+id/main_memocount"
+            android:text="3개 메모"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"/>

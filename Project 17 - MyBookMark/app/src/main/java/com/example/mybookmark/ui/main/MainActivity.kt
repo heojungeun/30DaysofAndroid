@@ -45,6 +45,9 @@ class MainActivity : AppCompatActivity() {
             adapter.setMemos(memos)
         })
 
+        var itemcnt: String = adapter.itemCount.toString() + "개 메모"
+        main_memocount.text = itemcnt
+
         addbtn.setOnClickListener {
             val intent = Intent(this, AddActivity::class.java)
             startActivity(intent)

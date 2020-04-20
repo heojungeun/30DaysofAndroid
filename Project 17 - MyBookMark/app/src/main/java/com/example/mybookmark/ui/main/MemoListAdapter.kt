@@ -3,6 +3,7 @@ package com.example.mybookmark.ui.main
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mybookmark.R
@@ -28,7 +29,7 @@ class MemoListAdapter(val memoItemClick: (Memo) -> Unit, val memoItemLongClick: 
         private val bname = itemView.findViewById<TextView>(R.id.itemTitle)
         private val btime = itemView.findViewById<TextView>(R.id.itemTime)
         private val bctnt = itemView.findViewById<TextView>(R.id.itemCtntView)
-        private val bthumb = itemView.findViewById<TextView>(R.id.itemThumb)
+        private val bthumb = itemView.findViewById<ImageView>(R.id.itemThumb)
 
         fun bind(memo : Memo){
             bname.text = memo.bookname

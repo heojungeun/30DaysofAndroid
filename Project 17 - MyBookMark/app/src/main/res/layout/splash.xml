@@ -22,8 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:padding="20dp"
-            android:background=""/>
+            android:padding="20dp"/>
 
     </FrameLayout>
 
