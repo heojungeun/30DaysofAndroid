@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(ItemviewActivity.EXTRA_BOOK_TIME, memo.time)
             intent.putExtra(ItemviewActivity.EXTRA_BOOK_CONTENT, memo.content)
             intent.putExtra(ItemviewActivity.EXTRA_BOOK_ID, memo.id)
+            intent.putExtra(ItemviewActivity.EXTRA_BOOK_LIKE, memo.islike)
             //intent.putExtra(ItemviewActivity.EXTRA_BOOK_PHOTOS, memo.photos)
             startActivity(intent)
         },{ memo->

@@ -20,5 +20,8 @@ data class Memo(
     var content: String ="",
 
     @ColumnInfo(name = "bphotos")
-    var photos: String=""
+    var photos: String="",
+
+    @ColumnInfo(name = "blike")
+    var islike: Int = 0
 )

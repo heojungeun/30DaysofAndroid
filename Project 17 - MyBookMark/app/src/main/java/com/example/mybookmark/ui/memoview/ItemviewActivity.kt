@@ -1,7 +1,10 @@
 package com.example.mybookmark.ui.memoview
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
@@ -17,6 +20,7 @@ class ItemviewActivity: AppCompatActivity() {
 
     private lateinit var memoViewModel: MainViewModel
     private var id: Long? = null
+    private lateinit var viewMemo : Memo
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,10 +29,13 @@ class ItemviewActivity: AppCompatActivity() {
         memoViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
         if(intent != null && intent.hasExtra(EXTRA_BOOK_NAME) && intent.hasExtra(EXTRA_BOOK_CONTENT)
-            && intent.hasExtra(EXTRA_BOOK_TIME)){
-            edit_title_txtview.setText(intent.getStringExtra(EXTRA_BOOK_NAME))
-            memoview_content_txtview.setText(intent.getStringExtra(EXTRA_BOOK_CONTENT))
+            && intent.hasExtra(EXTRA_BOOK_TIME) && intent.hasExtra(EXTRA_BOOK_LIKE)){
+
             id = intent.getLongExtra(EXTRA_BOOK_ID, -1)
+
+            updateView(intent.getStringExtra(EXTRA_BOOK_TIME),intent.getStringExtra(EXTRA_BOOK_NAME),
+                intent.getStringExtra(EXTRA_BOOK_CONTENT), "", intent.getIntExtra(EXTRA_BOOK_LIKE, 0))
+
         }
 
         backbtn.setOnClickListener {
@@ -44,14 +51,35 @@ class ItemviewActivity: AppCompatActivity() {
         editbtn.setOnClickListener {
             // start ItemviewActivity
             val intent = Intent(this, AddActivity::class.java)
-            intent.putExtra(AddActivity.EXTRA_BOOK_NAME, EXTRA_BOOK_NAME)
-            intent.putExtra(AddActivity.EXTRA_BOOK_TIME, EXTRA_BOOK_TIME)
-            intent.putExtra(AddActivity.EXTRA_BOOK_CONTENT, EXTRA_BOOK_CONTENT)
-            intent.putExtra(AddActivity.EXTRA_BOOK_ID, EXTRA_BOOK_ID)
+            intent.putExtra(AddActivity.EXTRA_BOOK_NAME, viewMemo.bookname)
+            intent.putExtra(AddActivity.EXTRA_BOOK_TIME, viewMemo.time)
+            intent.putExtra(AddActivity.EXTRA_BOOK_CONTENT, viewMemo.content)
+            intent.putExtra(AddActivity.EXTRA_BOOK_ID, id)
+            intent.putExtra(AddActivity.EXTRA_BOOK_LIKE, viewMemo.islike)
             //intent.putExtra(AddActivity.EXTRA_BOOK_PHOTOS, memo.photos)
-            startActivity(intent)
+            startActivityForResult(intent, 1234)
         }
 
+    }
+
+    fun updateView(btime:String, bname:String, bctnt:String, bph:String, blike:Int){
+
+        viewMemo = Memo(id,btime,bname,bctnt,bph,blike)
+
+        edit_title_txtview.setText(bname)
+        memoview_content_txtview.setText(bctnt)
+        memoview_time_txtview.setText(btime)
+
+        if(blike == 1){
+            view_like.visibility = View.VISIBLE
+            view_hate.visibility = View.INVISIBLE
+        }else if(blike == -1){
+            view_like.visibility = View.INVISIBLE
+            view_hate.visibility = View.VISIBLE
+        }else{
+            view_like.visibility = View.INVISIBLE
+            view_hate.visibility = View.INVISIBLE
+        }
     }
 
     private fun deleteDialog(id: Long){
@@ -64,11 +92,20 @@ class ItemviewActivity: AppCompatActivity() {
         builder.show()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode== 1234 && resultCode== RESULT_OK){
+            updateView(data!!.getStringExtra(EXTRA_BOOK_TIME),data!!.getStringExtra(EXTRA_BOOK_NAME),
+                data!!.getStringExtra(EXTRA_BOOK_CONTENT), "", data!!.getIntExtra(EXTRA_BOOK_LIKE,0))
+        }
+    }
+
     companion object {
         const val EXTRA_BOOK_ID = "EXTRA_BOOK_ID"
         const val EXTRA_BOOK_NAME = "EXTRA_BOOK_NAME"
         const val EXTRA_BOOK_CONTENT = "EXTRA_BOOK_CONTENT"
         const val EXTRA_BOOK_TIME = "EXTRA_BOOK_TIME"
+        const val EXTRA_BOOK_LIKE = "EXTRA_BOOK_LIKE"
         // photo를 어떻게 넘길것인가..
     }
 }

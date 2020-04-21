@@ -59,6 +59,8 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingLeft="10dp"
             android:background="@android:color/transparent"/>
 
     </LinearLayout>
@@ -70,24 +72,20 @@
         android:padding="10dp"
         android:background="@drawable/bottomborder">
 
-        <ImageButton
+        <Button
             android:id="@+id/likebtn"
-            android:src="@drawable/ic_thumb_up_black_25dp"
             android:layout_width="25dp"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:background="@android:color/transparent"
+            android:layout_height="25dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:background="@drawable/ic_thumb_up_black_25dp"
             android:layout_marginRight="10dp"/>
 
-        <ImageButton
+        <Button
             android:id="@+id/hatebtn"
-            android:src="@drawable/ic_thumb_down_black_25dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:background="@android:color/transparent"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:background="@drawable/ic_thumb_down_black_25dp"
             android:layout_marginRight="10dp"/>
 
         <ImageButton
@@ -106,6 +104,8 @@
         android:id="@+id/edit_content_txtview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="start"
+        android:padding="10dp"
         android:background="@android:color/transparent"/>
 
 </LinearLayout>

@@ -48,7 +48,7 @@
                 android:text="abcdefg..."
                 android:textSize="10dp"
                 android:textColor="@android:color/darker_gray"
-                />
+                android:maxLines="1"/>
 
         </LinearLayout>
     </LinearLayout>

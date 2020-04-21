@@ -40,16 +40,17 @@
             android:layout_width="90dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:paddingHorizontal="10dp"
+            android:paddingRight="10dp"
             android:background="@drawable/rightborder"
             android:layout_marginRight="10dp"/>
 
-        <EditText
+        <TextView
             android:id="@+id/edit_title_txtview"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:maxLines="1"
             android:background="@android:color/transparent"/>
 
     </LinearLayout>
@@ -69,6 +70,7 @@
             android:gravity="center"
             android:layout_gravity="center_vertical"
             android:background="@drawable/rightborder"
+            android:paddingRight="10dp"
             android:layout_marginRight="10dp"/>
 
         <FrameLayout
@@ -76,12 +78,13 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
+                android:id="@+id/view_like"
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="visible">
+                android:visibility="invisible">
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/likebtn"
                     android:src="@drawable/ic_thumb_up_purple_25dp"
                     android:layout_width="25dp"
@@ -100,12 +103,13 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/view_hate"
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="invisible">
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/hatebtn"
                     android:src="@drawable/ic_thumb_down_purple_25dp"
                     android:layout_width="wrap_content"
@@ -132,6 +136,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:padding="10dp"
         android:background="@android:color/transparent"/>
 
     <FrameLayout
