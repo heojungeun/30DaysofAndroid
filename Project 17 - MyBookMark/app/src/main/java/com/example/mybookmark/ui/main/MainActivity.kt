@@ -1,8 +1,12 @@
 package com.example.mybookmark.ui.main
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -12,7 +16,6 @@ import com.example.mybookmark.data.model.Memo
 import com.example.mybookmark.ui.addmemo.AddActivity
 import com.example.mybookmark.ui.memoview.ItemviewActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -52,6 +55,17 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AddActivity::class.java)
             startActivity(intent)
         }
+
+        main_searchedt.setOnClickListener {
+            main_searchedt.isCursorVisible = true
+        }
+    }
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        var imm : InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+        main_searchedt.isCursorVisible = false
+        return true
     }
 
     private fun deleteDialog(memo: Memo){

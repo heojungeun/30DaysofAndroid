@@ -1,8 +1,11 @@
 package com.example.mybookmark.ui.addmemo
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
@@ -91,12 +94,29 @@ class AddActivity: AppCompatActivity(){
                 hatebtn.setBackgroundResource(R.drawable.ic_thumb_down_purple_25dp)
             }
         }
+
+        edit_title_txtview.setOnClickListener {
+            edit_title_txtview.isCursorVisible = true
+        }
+
+        edit_content_txtview.setOnClickListener {
+            edit_content_txtview.isCursorVisible = true
+        }
+
     }
 
     fun getTodayDate() : String {
         var today = Calendar.getInstance().time
         var formatter = SimpleDateFormat("yyyy.MM.dd")
         return formatter.format(today)
+    }
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        var imm :InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+        edit_title_txtview.isCursorVisible = false
+        edit_content_txtview.isCursorVisible = false
+        return true
     }
 
     companion object {

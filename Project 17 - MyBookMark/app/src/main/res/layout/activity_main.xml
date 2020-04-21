@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="10dp"
-        android:paddingVertical="20dp">
+        android:paddingTop="15dp"
+        android:paddingBottom="5dp">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -28,10 +29,10 @@
                 android:textColor="@android:color/black"
                 android:layout_gravity="center_vertical" />
 
-            <ImageButton
+            <Button
                 android:id="@+id/mybtowerbtn"
-                android:src="@drawable/ic_account_circle_black_30dp"
-                android:background="@android:color/transparent"
+                android:background="@drawable/ic_account_circle_black_30dp"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_gravity="right|center_vertical"
@@ -41,12 +42,16 @@
         </FrameLayout>
 
         <EditText
+            android:id="@+id/main_searchedt"
             android:background="@drawable/bg_sideround"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="15sp"
+            android:padding="7sp"
             android:layout_marginHorizontal="10dp"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="5dp"
+            android:clickable="true"
+            android:focusableInTouchMode="true" />
 
     </LinearLayout>
 
@@ -59,7 +64,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/main_rcview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
 
     </ScrollView>
 
