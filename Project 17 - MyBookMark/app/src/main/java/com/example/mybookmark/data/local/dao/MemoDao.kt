@@ -7,7 +7,7 @@ import com.example.mybookmark.data.model.Memo
 @Dao
 interface MemoDao {
 
-    @Query("SELECT * FROM memo ORDER BY btime ASC")
+    @Query("SELECT * FROM memo ORDER BY btime DESC")
     fun getAll(): LiveData<List<Memo>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

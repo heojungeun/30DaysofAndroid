@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(ItemviewActivity.EXTRA_BOOK_CONTENT, memo.content)
             intent.putExtra(ItemviewActivity.EXTRA_BOOK_ID, memo.id)
             intent.putExtra(ItemviewActivity.EXTRA_BOOK_LIKE, memo.islike)
-            //intent.putExtra(ItemviewActivity.EXTRA_BOOK_PHOTOS, memo.photos)
+            intent.putExtra(ItemviewActivity.EXTRA_BOOK_PHOTO, memo.photos)
             startActivity(intent)
         },{ memo->
             deleteDialog(memo)

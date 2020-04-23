@@ -131,6 +131,12 @@
 
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/memoview_photo"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:visibility="gone"/>
+
     <TextView
         android:id="@+id/memoview_content_txtview"
         android:layout_width="match_parent"
