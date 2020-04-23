@@ -1,11 +1,13 @@
 package com.example.mybookmark.ui.main
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.mybookmark.R
 import com.example.mybookmark.data.model.Memo
 
@@ -38,6 +40,15 @@ class MemoListAdapter(val memoItemClick: (Memo) -> Unit, val memoItemLongClick: 
             btime.text = memo.time
             bctnt.text = memo.content
             //thumb 넣는거
+            if (memo.photos.equals("")){
+                // 사진 없을경우
+                bthumb.visibility = View.GONE
+            }else{
+                Glide.with(itemView.context)
+                    .load(memo.photos)
+                    .error(R.drawable.ic_error_purple_24dp)
+                    .into(bthumb)
+            }
 
             itemView.setOnClickListener {
                 memoItemClick(memo)

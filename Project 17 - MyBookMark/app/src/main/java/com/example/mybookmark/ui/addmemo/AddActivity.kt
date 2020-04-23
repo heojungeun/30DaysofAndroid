@@ -103,6 +103,10 @@ class AddActivity: AppCompatActivity(){
             edit_content_txtview.isCursorVisible = true
         }
 
+        photobtn.setOnClickListener {
+
+        }
+
     }
 
     fun getTodayDate() : String {

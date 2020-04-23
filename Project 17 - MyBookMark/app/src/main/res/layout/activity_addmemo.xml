@@ -90,7 +90,7 @@
 
         <ImageButton
             android:id="@+id/photobtn"
-            android:src="@drawable/ic_photo_camera_black_27dp"
+            android:src="@drawable/ic_photo_purple_27dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
@@ -99,6 +99,12 @@
             android:layout_marginRight="10dp"/>
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/add_photo"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        />
 
     <EditText
         android:id="@+id/edit_content_txtview"
