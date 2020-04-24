@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.mybookmark.data.local.dao.MemoDao
 import com.example.mybookmark.data.model.Memo
 
-@Database(entities = [Memo::class], version = 3, exportSchema = false)
+@Database(entities = [Memo::class], version = 4, exportSchema = false)
 abstract class MemoDatabase: RoomDatabase() {
 
     abstract fun memoDao(): MemoDao

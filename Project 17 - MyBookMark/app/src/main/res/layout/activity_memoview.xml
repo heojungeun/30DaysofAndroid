@@ -131,19 +131,32 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/memoview_photo"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:visibility="gone"/>
-
-    <TextView
-        android:id="@+id/memoview_content_txtview"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="10dp"
-        android:background="@android:color/transparent"/>
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/memoview_photo"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/memoview_content_txtview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:background="@android:color/transparent"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
     <FrameLayout
         android:layout_width="match_parent"

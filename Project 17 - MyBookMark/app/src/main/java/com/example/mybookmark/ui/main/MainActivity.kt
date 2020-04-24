@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
 
         memoViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         memoViewModel.getAll().observe(this, Observer<List<Memo>> { memos->
-            adapter.setMemos(memos)
+            adapter.setMemos(memos.reversed())
             var itemcnt: String = adapter.itemCount.toString() + "개 메모"
             main_memocount.text = itemcnt
         })

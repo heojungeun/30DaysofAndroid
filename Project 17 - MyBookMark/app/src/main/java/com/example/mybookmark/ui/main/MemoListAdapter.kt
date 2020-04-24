@@ -42,7 +42,7 @@ class MemoListAdapter(val memoItemClick: (Memo) -> Unit, val memoItemLongClick: 
             //thumb 넣는거
             if (memo.photos.equals("")){
                 // 사진 없을경우
-                bthumb.visibility = View.GONE
+                bthumb.visibility = View.INVISIBLE
             }else{
                 Glide.with(itemView.context)
                     .load(memo.photos)
