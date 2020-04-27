@@ -1,6 +1,8 @@
 # 30DaysofAndroid
 
-이 프로젝트는 [allenwong의 30DaysofSwift](https://github.com/allenwong/30DaysofSwift)의 결과화면을 보고, 안드로이드로 만드는 방식으로 진행됩니다.
+이 프로젝트는 [allenwong의 30DaysofSwift](https://github.com/allenwong/30DaysofSwift)의 결과화면을 보고 만드거나,
+
+그때 그때 제가 원하는 앱을 만드는 방식으로 진행됩니다.
 
 ## Project Index & GIF Showcase ##
 
