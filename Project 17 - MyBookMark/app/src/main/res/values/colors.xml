@@ -2,6 +2,10 @@
 <resources>
     <color name="colorPrimary">#EDEDED</color>
     <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorBook1">#60618D</color>
+    <color name="colorBook2">#6E70C0</color>
+    <color name="colorBook3">#3B3C68</color>
     <color name="colorAccent">#9193D3</color>
+    <color name="colorAccentpas">#B5B6E3</color>
     <color name="colorgray">#878D97</color>
 </resources>

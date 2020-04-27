@@ -15,6 +15,7 @@ import com.example.mybookmark.R
 import com.example.mybookmark.data.model.Memo
 import com.example.mybookmark.ui.addmemo.AddActivity
 import com.example.mybookmark.ui.memoview.ItemviewActivity
+import com.example.mybookmark.ui.mybooktower.MyBTowerActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -58,6 +59,11 @@ class MainActivity : AppCompatActivity() {
 
         main_searchedt.setOnClickListener {
             main_searchedt.isCursorVisible = true
+        }
+
+        mybtowerbtn.setOnClickListener {
+            val intent = Intent(this,MyBTowerActivity::class.java)
+            startActivity(intent)
         }
     }
 

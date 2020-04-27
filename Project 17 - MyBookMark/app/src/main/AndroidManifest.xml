@@ -20,6 +20,7 @@
         </activity>
         <activity android:name=".ui.addmemo.AddActivity"/>
         <activity android:name=".ui.memoview.ItemviewActivity"/>
+        <activity android:name=".ui.mybooktower.MyBTowerActivity"/>
     </application>
 
 </manifest>
