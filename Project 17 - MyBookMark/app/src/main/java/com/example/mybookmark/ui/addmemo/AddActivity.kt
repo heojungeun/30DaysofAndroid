@@ -27,6 +27,7 @@ class AddActivity: AppCompatActivity(){
     private lateinit var memoViewModel: MainViewModel
     private var id: Long? = null
     private var add_islike: Int = 0
+    private var liketouchcheck: Int = 0
     private var addphoto_uri = ""
     private lateinit var viewMemo : Memo
 
@@ -40,7 +41,7 @@ class AddActivity: AppCompatActivity(){
         if(intent != null && intent.hasExtra(EXTRA_BOOK_NAME) && intent.hasExtra(EXTRA_BOOK_CONTENT)
             && intent.hasExtra(EXTRA_BOOK_PHOTO) && intent.hasExtra(EXTRA_BOOK_TIME)&& intent.hasExtra(EXTRA_BOOK_LIKE)){
 
-            id = intent.getLongExtra(EXTRA_BOOK_ID, -1)
+            id = intent.getLongExtra(EXTRA_BOOK_ID, -1L)
 
             updateView(intent.getStringExtra(EXTRA_BOOK_TIME),intent.getStringExtra(EXTRA_BOOK_NAME),
                 intent.getStringExtra(EXTRA_BOOK_CONTENT), intent.getStringExtra(EXTRA_BOOK_PHOTO), intent.getIntExtra(EXTRA_BOOK_LIKE, 0))
@@ -55,8 +56,12 @@ class AddActivity: AppCompatActivity(){
             val name = edit_title_txtview.text.toString()
             val ctnt = edit_content_txtview.text.toString()
             val date = getTodayDate()
-            addphoto_uri = viewMemo.photos
-            add_islike = viewMemo.islike
+            if(addphoto_uri.equals("") && id != null){
+                addphoto_uri = viewMemo.photos
+            }
+            if(id !=null && liketouchcheck==0){
+                add_islike = viewMemo.islike
+            }
 
             if (name.isEmpty() && ctnt.isEmpty()){
                 Toast.makeText(this,"제목과 내용을 입력해주세요.",Toast.LENGTH_SHORT).show()
@@ -76,6 +81,7 @@ class AddActivity: AppCompatActivity(){
         }
 
         likebtn.setOnClickListener {
+            liketouchcheck = 1
             // 좋아요 버튼이 눌러졌을 때, 이미 눌러진 상태일 경우
             if(add_islike == 1){
                 add_islike = 0
@@ -89,6 +95,7 @@ class AddActivity: AppCompatActivity(){
         }
 
         hatebtn.setOnClickListener {
+            liketouchcheck = -1
             // 싫어요 버튼이 눌러졌을 때, 이미 눌러진 상태일 경우
             if(add_islike == -1){
                 add_islike = 0
