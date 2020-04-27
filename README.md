@@ -70,3 +70,7 @@ Project 16 - [FirstMLkit](https://github.com/heojungeun/30DaysofAndroid/tree/mas
 <img src="https://github.com/heojungeun/30DaysofAndroid/blob/master/Project%2016%20-%20FirstMLkit/project16%20-%20screenshot1.gif" width="250">
 <img src="https://github.com/heojungeun/30DaysofAndroid/blob/master/Project%2016%20-%20FirstMLkit/project16%20-%20screenshot2.gif" width="250">
 </p>
+
+Project 17 - [MyBookMark](https://github.com/heojungeun/30DaysofAndroid/tree/master/Project%2017%20-%20MyBookMark)
+
+<img src="https://github.com/heojungeun/30DaysofAndroid/blob/master/Project%2017%20-%20MyBookMark/project17%20-%20screenshot.gif" width="250">
