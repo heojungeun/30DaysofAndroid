@@ -82,7 +82,9 @@ class ItemviewActivity: AppCompatActivity() {
             view_hate.visibility = View.INVISIBLE
         }
 
-        if(!bph.equals("")){
+        if(bph.equals("")){
+            memoview_photo.visibility = View.GONE
+        }else{
             Glide.with(this)
                 .load(viewMemo.photos)
                 .error(R.drawable.ic_error_purple_24dp)

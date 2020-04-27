@@ -55,6 +55,8 @@ class AddActivity: AppCompatActivity(){
             val name = edit_title_txtview.text.toString()
             val ctnt = edit_content_txtview.text.toString()
             val date = getTodayDate()
+            addphoto_uri = viewMemo.photos
+            add_islike = viewMemo.islike
 
             if (name.isEmpty() && ctnt.isEmpty()){
                 Toast.makeText(this,"제목과 내용을 입력해주세요.",Toast.LENGTH_SHORT).show()

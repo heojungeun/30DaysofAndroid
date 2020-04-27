@@ -41,13 +41,14 @@ class MainActivity : AppCompatActivity() {
         })
 
         val linearLayoutManager = LinearLayoutManager(this)
-        main_rcview.adapter = adapter
-        main_rcview.layoutManager = linearLayoutManager
-        main_rcview.setHasFixedSize(true)
 
         memoViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         memoViewModel.getAll().observe(this, Observer<List<Memo>> { memos->
+            main_rcview.layoutManager = linearLayoutManager
+            main_rcview.setHasFixedSize(true)
             adapter.setMemos(memos.reversed())
+            main_rcview.adapter = adapter
+            
             var itemcnt: String = adapter.itemCount.toString() + "개 메모"
             main_memocount.text = itemcnt
         })
