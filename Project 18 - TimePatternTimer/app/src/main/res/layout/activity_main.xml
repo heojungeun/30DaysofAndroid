@@ -39,19 +39,17 @@
 
     <me.tankery.lib.circularseekbar.CircularSeekBar
         android:id="@+id/seekbar"
-        app:cs_circle_style="butt"
-        app:cs_max="3600"
-        app:cs_circle_stroke_width="120dp"
-        app:cs_pointer_stroke_width="120dp"
-        app:cs_pointer_angle="0"
-        app:cs_circle_color = "@android:color/white"
-        app:cs_circle_progress_color = "@color/colorAccent"
-        app:cs_pointer_color = "@color/colorAccent"
-        app:cs_pointer_halo_color = "@android:color/white"
-        app:cs_pointer_halo_color_ontouch = "@android:color/white"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        app:cs_circle_color="@android:color/white"
+        app:cs_circle_progress_color="@color/colorAccent"
+        app:cs_circle_stroke_width="120dp"
+        app:cs_circle_style="butt"
+        app:cs_disable_progress_glow="true"
+        app:cs_max="3600"
+        app:cs_pointer_color="@color/colorAccent"
+        app:cs_pointer_stroke_width="120dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -84,6 +82,30 @@
             android:background="@drawable/roundbtn1"
             android:layout_width="90dp"
             android:layout_height="90dp"
+            android:layout_gravity="right|center_vertical"
+            style="?android:attr/borderlessButtonStyle"/>
+
+        <Button
+            android:id="@+id/pausebtn"
+            android:text="일시정지"
+            android:textSize="17sp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/roundbtn_pause"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:visibility="gone"
+            android:layout_gravity="right|center_vertical"
+            style="?android:attr/borderlessButtonStyle"/>
+
+        <Button
+            android:id="@+id/restartbtn"
+            android:text="재개"
+            android:textSize="17sp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/roundbtn1"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:visibility="gone"
             android:layout_gravity="right|center_vertical"
             style="?android:attr/borderlessButtonStyle"/>
 
