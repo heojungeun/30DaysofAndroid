@@ -26,9 +26,10 @@
     </FrameLayout>
 
     <TextView
+        android:id="@+id/textTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="00:00"
+        android:text="00:00:00"
         android:textSize="45sp"
         android:letterSpacing="0.1"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -39,7 +40,7 @@
     <me.tankery.lib.circularseekbar.CircularSeekBar
         android:id="@+id/seekbar"
         app:cs_circle_style="butt"
-        app:cs_max="120"
+        app:cs_max="3600"
         app:cs_circle_stroke_width="120dp"
         app:cs_pointer_stroke_width="120dp"
         app:cs_pointer_angle="0"
