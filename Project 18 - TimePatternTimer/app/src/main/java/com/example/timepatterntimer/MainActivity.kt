@@ -58,6 +58,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        // TODO 스타트 버튼 restart랑 합치게 변수들 내보내기
         startbtn.setOnClickListener {
             pausebtn.visibility = View.VISIBLE
             var curTime = textTime.text.split(":")
