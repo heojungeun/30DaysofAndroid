@@ -29,7 +29,7 @@
         android:id="@+id/textTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="00:00:00"
+        android:text="00:00"
         android:textSize="45sp"
         android:letterSpacing="0.1"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -91,18 +91,6 @@
             android:textSize="17sp"
             android:textColor="@android:color/white"
             android:background="@drawable/roundbtn_pause"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:visibility="gone"
-            android:layout_gravity="right|center_vertical"
-            style="?android:attr/borderlessButtonStyle"/>
-
-        <Button
-            android:id="@+id/restartbtn"
-            android:text="재개"
-            android:textSize="17sp"
-            android:textColor="@android:color/white"
-            android:background="@drawable/roundbtn1"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:visibility="gone"
