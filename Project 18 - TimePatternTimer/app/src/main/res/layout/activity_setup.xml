@@ -13,7 +13,7 @@
         <Button
             android:id="@+id/backbtn"
             android:text="취소"
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:textColor="@color/colorAccent"
             android:background="@android:color/transparent"
             android:layout_width="wrap_content"
@@ -23,7 +23,7 @@
         <Button
             android:id="@+id/savebtn"
             android:text="저장"
-            android:textSize="20sp"
+            android:textSize="17sp"
             android:textColor="@android:color/white"
             android:background="@color/colorAccent"
             android:layout_gravity="right|center_vertical"

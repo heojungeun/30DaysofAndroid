@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        SoundPlayer().initSounds(this)
+
         seekbar.setOnSeekBarChangeListener(object : OnCircularSeekBarChangeListener {
             override fun onProgressChanged(
                 circularSeekBar: CircularSeekBar,
@@ -45,12 +47,7 @@ class MainActivity : AppCompatActivity() {
         })
 
         cancelbtn.setOnClickListener {
-            textTime.text = "00:00"
-            seekbar.progress = 0F
-            isRuned = false
-            timerTask?.cancel()
-            time = 0
-            pausebtn.visibility = View.GONE
+            reset()
         }
 
         pausebtn.setOnClickListener {
@@ -74,6 +71,11 @@ class MainActivity : AppCompatActivity() {
                     time++
                     val sec_sub = time/100 // 1초가 지나면 time은 100이되는데 이 때 sec은 1이 됨
                     var sec_tmp = pickTime - sec_sub
+                    if (sec_tmp==0){
+                        reset()
+                        timeoverlayout.visibility = View.VISIBLE
+                        SoundPlayer().play(SoundPlayer().BBIBBI)
+                    }
                     val min_tmp = (sec_tmp/60)%60
                     sec_tmp %= 60
                     // runonuithread메소드 호출 (ui관련 객체를 전달) <sam변환>
@@ -82,7 +84,6 @@ class MainActivity : AppCompatActivity() {
                     runOnUiThread{
                         textTime.text = String.format("%02d:%02d", min_tmp, sec_tmp)
                     }
-
                 }
             }
 
@@ -92,5 +93,14 @@ class MainActivity : AppCompatActivity() {
             var intent = Intent(this, SetupActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun reset(){
+        textTime.text = "00:00"
+        seekbar.progress = 0F
+        isRuned = false
+        timerTask?.cancel()
+        time = 0
+        pausebtn.visibility = View.GONE
     }
 }
