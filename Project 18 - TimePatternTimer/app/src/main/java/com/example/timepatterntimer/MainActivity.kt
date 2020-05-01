@@ -1,6 +1,7 @@
 package com.example.timepatterntimer
 
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
     private var time=0 // 0.01초마다 1씩 오르는 변수
     private var isRuned=false // 스톱워치 실행이 되면 true가 됨
+    private var isTune = false
     private var timerTask: Timer?=null // Timer객체를 가리키는 참조변수
     private var pickTime:Int=0 // 선택한 시간 저장 변수
 
@@ -23,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        SoundPlayer().initSounds(this)
+        var mediaPlayer: MediaPlayer? = MediaPlayer.create(this, R.raw.bbibbi)
 
         seekbar.setOnSeekBarChangeListener(object : OnCircularSeekBarChangeListener {
             override fun onProgressChanged(
@@ -74,7 +76,8 @@ class MainActivity : AppCompatActivity() {
                     if (sec_tmp==0){
                         reset()
                         timeoverlayout.visibility = View.VISIBLE
-                        SoundPlayer().play(SoundPlayer().BBIBBI)
+                        mediaPlayer?.start()
+                        isTune = true
                     }
                     val min_tmp = (sec_tmp/60)%60
                     sec_tmp %= 60
@@ -87,6 +90,13 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
+        }
+
+        overbtn.setOnClickListener {
+            isTune = false
+            mediaPlayer?.release()
+            mediaPlayer = null
+            timeoverlayout.visibility = View.GONE
         }
 
         setupbtn.setOnClickListener {
@@ -102,5 +112,10 @@ class MainActivity : AppCompatActivity() {
         timerTask?.cancel()
         time = 0
         pausebtn.visibility = View.GONE
+    }
+
+    override fun onStart() {
+        super.onStart()
+
     }
 }
