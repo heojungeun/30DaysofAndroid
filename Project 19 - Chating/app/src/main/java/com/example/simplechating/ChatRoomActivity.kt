@@ -33,7 +33,7 @@ class ChatRoomActivity : AppCompatActivity(){
 
     fun sendMessage(){
         val getTime = getTodayDate()
-        val item = ChatModel(preferences.getString("name","")!!,
+        val item = ChatModel(preferences.getInt("id",-1),preferences.getString("name","")!!,
             chatroom_Text.text.toString(),"example",getTime)
         mAdapter.addItem(item)
         mAdapter.notifyDataSetChanged()
