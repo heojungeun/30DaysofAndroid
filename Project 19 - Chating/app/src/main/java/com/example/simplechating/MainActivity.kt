@@ -20,7 +20,8 @@ class MainActivity : AppCompatActivity() {
 
         // btn click -> input name -> save sharedpreference, intent(name)
         transbtn.setOnClickListener {
-            editor.putString("name", main_edtTxt.text.toString())
+            editor.putString("id", main_id.text.toString())
+            editor.putString("name", main_name.text.toString())
             val intent = Intent(this, ChatRoomActivity::class.java)
             startActivity(intent)
         }

@@ -20,7 +20,7 @@ class ChatAdapter(val context: Context, val chatlist: ArrayList<ChatModel>)
 
     override fun getItemViewType(position: Int): Int {
         preferences = context.getSharedPreferences("USERSIGN", Context.MODE_PRIVATE)
-        return if(chatlist.get(position).id == preferences.getInt("id",-1)){
+        return if(chatlist.get(position).id == preferences.getString("id","")){
             1
         }else{
             2
@@ -53,12 +53,12 @@ class ChatAdapter(val context: Context, val chatlist: ArrayList<ChatModel>)
     }
 
     inner class Holder(itemView: View): RecyclerView.ViewHolder(itemView){
-        val chatText = itemView?.findViewById<EditText>(R.id.chat_text)
+        val chatText = itemView?.findViewById<TextView>(R.id.chat_text)
         val chatTime = itemView?.findViewById<TextView>(R.id.chat_Time)
     }
 
     inner class Holder2(itemView: View): RecyclerView.ViewHolder(itemView){
-        val chatText = itemView?.findViewById<EditText>(R.id.chat_text)
+        val chatText = itemView?.findViewById<TextView>(R.id.chat_text)
         val chatTime = itemView?.findViewById<TextView>(R.id.chat_Time)
         val chatYouImg = itemView?.findViewById<ImageView>(R.id.chat_You_img)
         val chatYourname = itemView?.findViewById<TextView>(R.id.chat_Yourname)

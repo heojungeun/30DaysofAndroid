@@ -27,13 +27,13 @@ class ChatRoomActivity : AppCompatActivity(){
         chatroom_Rcview.setHasFixedSize(true)
 
         chatroom_Sendbtn.setOnClickListener {
-
+            sendMessage()
         }
     }
 
     fun sendMessage(){
         val getTime = getTodayDate()
-        val item = ChatModel(preferences.getInt("id",-1),preferences.getString("name","")!!,
+        val item = ChatModel(preferences.getString("id", "")!!,preferences.getString("name","")!!,
             chatroom_Text.text.toString(),"example",getTime)
         mAdapter.addItem(item)
         mAdapter.notifyDataSetChanged()

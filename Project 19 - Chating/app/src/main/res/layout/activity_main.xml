@@ -13,7 +13,16 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/main_edtTxt"/>
+        android:hint="id"
+        android:id="@+id/main_id"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:hint="name"
+        android:id="@+id/main_name"/>
 
     <Button
         android:id="@+id/transbtn"
