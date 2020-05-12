@@ -52,9 +52,7 @@ class pictureFolderAdapter : RecyclerView.Adapter<pictureFolderAdapter.FolderHol
         val text = "(" + folder.getNumberOfPics() + ") " + folder.getFolderName()
         holder.folderName.text = text
         holder.folderPic.setOnClickListener{
-            fun onClick(v: View?) {
-                listenToClick!!.onPicClicked(folder.getPath(), folder.getFolderName())
-            }
+            listenToClick!!.onPicClicked(folder.getPath(), folder.getFolderName())
         }
     }
 

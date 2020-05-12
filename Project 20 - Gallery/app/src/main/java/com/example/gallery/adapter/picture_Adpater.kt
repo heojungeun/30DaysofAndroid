@@ -50,9 +50,7 @@ class picture_Adpater : RecyclerView.Adapter<PicHolder> {
             .into(holder.picture!!)
         setTransitionName(holder.picture!!, position.toString() + "_image")
         holder.picture!!.setOnClickListener{
-            fun onClick(v: View?) {
-                picListener!!.onPicClicked(holder, position, pictureList)
-            }
+            picListener!!.onPicClicked(holder, position, pictureList)
         }
     }
 
