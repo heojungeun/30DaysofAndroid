@@ -3,6 +3,7 @@ package com.example.gallery.fragment
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
@@ -23,6 +24,9 @@ import com.example.gallery.R
 import com.example.gallery.adapter.recyclerViewPagerImageIndicator
 import com.example.gallery.utils.interfaces.imageIndicatorListener
 import com.example.gallery.utils.pictureFacer
+import com.google.firebase.ml.vision.FirebaseVision
+import com.google.firebase.ml.vision.common.FirebaseVisionImage
+import kotlinx.android.synthetic.main.picture_browser.*
 
 
 class pictureBrowserFragment: Fragment, imageIndicatorListener{
@@ -197,6 +201,31 @@ class pictureBrowserFragment: Fragment, imageIndicatorListener{
                 .load(pic.getPicturePath())
                 .apply(RequestOptions().fitCenter())
                 .into(image)
+
+            mllabelbtn.setOnClickListener {
+//                val labelImg = FirebaseVisionImage.fromBitmap(
+//                    (image.drawable as BitmapDrawable).bitmap
+//                )
+                val labelImg = FirebaseVisionImage.fromBitmap(
+                    (image.drawable as BitmapDrawable).bitmap
+                )
+
+                val detector = FirebaseVision.getInstance().getOnDeviceImageLabeler()
+
+                detector.processImage(labelImg)
+                    .addOnSuccessListener { labels ->
+                        var output = "* "
+                        for (label in labels) {
+                            if (label.confidence > 0.7)
+                                output += label.text + " "
+                        }
+                        imgtag.text = output
+                    }
+                    .addOnFailureListener { e->
+                        // print mlcnt "i dont know"
+                    }
+            }
+
             image.setOnClickListener{
                     if (indicatorRecycler!!.getVisibility() == View.GONE) {
                         indicatorRecycler!!.setVisibility(View.VISIBLE)

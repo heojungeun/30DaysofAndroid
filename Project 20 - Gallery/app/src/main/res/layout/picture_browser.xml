@@ -17,13 +17,32 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/imgtag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal|top"/>
+
+            <ImageButton
+                android:id="@+id/mllabelbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end"
+                android:src="@drawable/ic_more_vert_white_24dp"
+                android:background="@android:color/transparent"
+                android:layout_marginEnd="15dp"
+                android:layout_marginTop="10dp"
+                />
+
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:src="@drawable/ic_launcher_foreground"
                 android:tint="@android:color/white"
-                android:layout_gravity="center_vertical|right"
+                android:layout_gravity="center"
                 android:layout_marginEnd="10dp"/>
 
         </FrameLayout>

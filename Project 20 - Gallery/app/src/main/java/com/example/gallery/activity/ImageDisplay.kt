@@ -40,12 +40,12 @@ class ImageDisplay : AppCompatActivity(),
         imageRecycler.addItemDecoration(MarginDecoration(this))
         imageRecycler.hasFixedSize()
 
+        // 처음엔 무조건 if 문에 들어감
         if (allpictures!!.isEmpty()) {
             loader.setVisibility(View.VISIBLE)
             allpictures = getAllImagesByFolder(foldePath)
             imageRecycler.adapter = picture_Adpater(allpictures, this@ImageDisplay, this)
             loader.setVisibility(View.GONE)
-        } else {
         }
     }
 
