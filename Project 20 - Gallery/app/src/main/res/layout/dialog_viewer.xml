@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/d_photo_date_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="날짜 : "
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/d_photo_gps_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="위치 : "
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/d_photo_tag_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="태그 : "
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/d_photo_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="text"/>
+
+</LinearLayout>

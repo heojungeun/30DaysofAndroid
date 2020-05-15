@@ -2,6 +2,7 @@ package com.example.gallery.fragment
 
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.content.Context
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
@@ -10,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.annotation.Nullable
 import androidx.core.view.ViewCompat.setTransitionName
 import androidx.fragment.app.Fragment
@@ -26,6 +28,7 @@ import com.example.gallery.utils.interfaces.imageIndicatorListener
 import com.example.gallery.utils.pictureFacer
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
+import kotlinx.android.synthetic.main.dialog_viewer.*
 import kotlinx.android.synthetic.main.picture_browser.*
 
 
@@ -203,28 +206,35 @@ class pictureBrowserFragment: Fragment, imageIndicatorListener{
                 .into(image)
 
             mllabelbtn.setOnClickListener {
+                val builder = AlertDialog.Builder(context)
+                val dialogView = layoutInflater.inflate(R.layout.dialog_viewer, null)
+                var dlbl = dialogView.findViewById<TextView>(R.id.d_photo_info)
+                dlbl.setText("come on!")
+
+                builder.setView(dialogView).create().show()
+            }
+
+//            mllabelbtn.setOnClickListener {
+//
 //                val labelImg = FirebaseVisionImage.fromBitmap(
 //                    (image.drawable as BitmapDrawable).bitmap
 //                )
-                val labelImg = FirebaseVisionImage.fromBitmap(
-                    (image.drawable as BitmapDrawable).bitmap
-                )
-
-                val detector = FirebaseVision.getInstance().getOnDeviceImageLabeler()
-
-                detector.processImage(labelImg)
-                    .addOnSuccessListener { labels ->
-                        var output = "* "
-                        for (label in labels) {
-                            if (label.confidence > 0.7)
-                                output += label.text + " "
-                        }
-                        imgtag.text = output
-                    }
-                    .addOnFailureListener { e->
-                        // print mlcnt "i dont know"
-                    }
-            }
+//
+//                val detector = FirebaseVision.getInstance().getOnDeviceImageLabeler()
+//
+//                detector.processImage(labelImg)
+//                    .addOnSuccessListener { labels ->
+//                        var output = "* "
+//                        for (label in labels) {
+//                            if (label.confidence > 0.7)
+//                                output += label.text + " "
+//                        }
+//                        imgtag.text = output
+//                    }
+//                    .addOnFailureListener { e->
+//                        // print mlcnt "i dont know"
+//                    }
+//            }
 
             image.setOnClickListener{
                     if (indicatorRecycler!!.getVisibility() == View.GONE) {
