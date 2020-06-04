@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,26 +8,70 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <EditText
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/ImageIcon"
+        android:src="@drawable/kakaoicon1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/loginEdit"/>
+
+    <LinearLayout
+        android:id="@+id/loginEdit"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:hint="id"
-        android:id="@+id/main_id"/>
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:hint="name"
-        android:id="@+id/main_name"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="250dp"
+            android:layout_height="90dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/login_round">
 
-    <Button
-        android:id="@+id/transbtn"
-        android:text="전송"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:hint="ID"
+                android:textSize="14dp"
+                android:id="@+id/main_id"
+                android:background="@drawable/bottom_line"
+                android:paddingHorizontal="20dp"/>
 
-</LinearLayout>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:hint="NAME"
+                android:textSize="14dp"
+                android:id="@+id/main_name"
+                android:background="@android:color/transparent"
+                android:paddingHorizontal="20dp"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/transbtn"
+            android:text="로그인"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/loginbtn_round" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

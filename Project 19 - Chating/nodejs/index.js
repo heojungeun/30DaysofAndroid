@@ -15,19 +15,22 @@ console.log('outside io')
 
 io.on('connection', function(socket){
 
-    // when log in -- start
-    console.log('User Connection')
+    // 로그인했을 때
+    console.log('User Connection - log in')
 
+    // 클라이언트에서 'connect user'로 request 보내면
+    // 함께 보내온 데이터를 가지고 로그를 찍거나, 다시 emit 을 통해 클라이언트로 응답을 보냄
     socket.on('connect user',function(user){
         console.log("Connected user")
         socket.join(user['roomName'])
         console.log("roomName : ", user['roomName'])
         console.log("state : ", socket.adapter.rooms)
-        io.emit('connect user', user)
+        io.emit('connect user', user) // 'connect user'로 client 에 데이터를 담아서 response 한다.
     });
-    // when log in -- end
 
-    // when input msg -- start
+    // 로그인했을 때 -- end
+
+    // 메세지 입력했을때 서버로그 처리 -- start
     socket.on('chat message', function(msg){
         console.log("Message" + msg['message'])
         console.log("sender id : ", msg['roomName'])
