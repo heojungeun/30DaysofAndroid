@@ -20,7 +20,7 @@ class ChatRoomActivity : AppCompatActivity() {
 
     internal lateinit var preferences: SharedPreferences
     private var chatList = arrayListOf<ChatModel>()
-    private lateinit var mAdapter : ChatAdapter
+    private lateinit var mAdapter: ChatAdapter
 
     private var hasConnection: Boolean = false
     private var thd: Thread? = null
@@ -77,6 +77,34 @@ class ChatRoomActivity : AppCompatActivity() {
         }
     }
 
+    private fun sendMessage() {
+        val getTime = getTodayDate()
+
+        val message = chatroom_Text.text.toString().trim { it <= ' ' }
+        if (TextUtils.isEmpty(message)) {
+            return
+        }
+        chatroom_Text.setText("")
+        val jsonObject = JSONObject()
+        try {
+            jsonObject.put("id", preferences.getString("id", ""))
+            jsonObject.put("name", preferences.getString("name", ""))
+            jsonObject.put("profile_img", "example")
+            jsonObject.put("cdate", getTime)
+            jsonObject.put("roomName", "room_examle")
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+        Log.e("chatRoom", "sendMessage:1" + mSocket.emit("chat message", jsonObject))
+        Log.e("sendmmm", preferences.getString("name", ""))
+    }
+
+    fun getTodayDate(): String {
+        var today = Calendar.getInstance().time
+        var formatter = SimpleDateFormat("hh:mm:ss a")
+        return formatter.format(today)
+    }
+
     private var onNewUser: Emitter.Listener = Emitter.Listener { args ->
         runOnUiThread(Runnable {
             val length = args.size
@@ -120,33 +148,5 @@ class ChatRoomActivity : AppCompatActivity() {
                 return@Runnable
             }
         })
-    }
-
-    private fun sendMessage() {
-        val getTime = getTodayDate()
-
-        val message = chatroom_Text.text.toString().trim { it <= ' ' }
-        if (TextUtils.isEmpty(message)) {
-            return
-        }
-        chatroom_Text.setText("")
-        val jsonObject = JSONObject()
-        try {
-            jsonObject.put("id", preferences.getString("id", ""))
-            jsonObject.put("name", preferences.getString("name", ""))
-            jsonObject.put("profile_img", "example")
-            jsonObject.put("cdate", getTime)
-            jsonObject.put("roomName", "room_examle")
-        } catch (e: JSONException) {
-            e.printStackTrace()
-        }
-        Log.e("chatRoom", "sendMessage:1" + mSocket.emit("chat message", jsonObject))
-        Log.e("sendmmm", preferences.getString("name", ""))
-    }
-
-    fun getTodayDate(): String {
-        var today = Calendar.getInstance().time
-        var formatter = SimpleDateFormat("hh:mm:ss a")
-        return formatter.format(today)
     }
 }

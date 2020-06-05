@@ -4,29 +4,40 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="right">
+    android:gravity="right">
 
     <TextView
         android:id="@+id/chat_Myname"
         android:layout_width="wrap_content"
         android:layout_height="1dp"/>
 
-    <TextView
-        android:id="@+id/chat_text"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="input text"
-        android:textSize="20dp"
-        android:layout_gravity="right"
-        android:gravity="center_vertical"
-        android:background="@drawable/chat_round"
-        android:padding="10dp"/>
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/chat_Time"
-        android:text="time"
-        android:gravity="right|center_vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/chat_Time"
+            android:text="time"
+            android:gravity="right|center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_gravity="bottom"/>
+
+        <TextView
+            android:id="@+id/chat_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="input text"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:layout_gravity="right"
+            android:gravity="center_vertical"
+            android:background="@drawable/chat_round"
+            android:padding="10dp"/>
+
+    </LinearLayout>
+
 
 </LinearLayout>

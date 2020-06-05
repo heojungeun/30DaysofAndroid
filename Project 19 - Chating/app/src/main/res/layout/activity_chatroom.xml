@@ -5,11 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:paddingHorizontal="10dp"
+        android:background="@drawable/bottom_line_bg">
+
+        <ImageButton
+            android:src="@drawable/ic_chevron_left_black_30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:layout_gravity="center_vertical"/>
 
         <TextView
             android:id="@+id/chatroom_Name"
@@ -17,40 +25,46 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="채팅방이름"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:textColor="@android:color/black"/>
 
-    </LinearLayout>
+    </FrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatroom_Rcview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="9"
-        android:background="#A7D9EF"/>
+        android:background="@color/colorBG"
+        android:padding="10dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <EditText
             android:id="@+id/chatroom_Text"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_weight="9"
-            android:ems="10"
             android:hint="보낼 내용을 입력하세요"
+            android:textSize="15dp"
+            android:padding="10dp"
+            android:layout_marginRight="10dp"
             android:inputType="textPersonName"
-            />
+            android:background="@drawable/login_round"/>
 
         <Button
             android:id="@+id/chatroom_Sendbtn"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_weight="2"
+            android:background="@drawable/sendbtn_round"
             android:text="전송"/>
 
     </LinearLayout>
