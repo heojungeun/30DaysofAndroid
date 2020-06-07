@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">OurGithubContributions</string>
+    <string name="baseUrl">https://github.com</string>
 </resources>
