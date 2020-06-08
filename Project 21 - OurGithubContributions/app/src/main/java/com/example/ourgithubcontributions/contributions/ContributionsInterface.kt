@@ -1,7 +1,8 @@
-package com.example.ourgithubcontributions.ui.contributions
+package com.example.ourgithubcontributions.contributions
 
 import android.content.Context
 import android.telecom.Call
+import com.example.ourgithubcontributions.data.ContributionsDay
 
 interface ContributionsInterface {
 
@@ -10,12 +11,12 @@ interface ContributionsInterface {
     }
 
     interface View {
-        fun showAppWidget(list: List<ContributionsDay>)
+        fun showContributions(list: List<ContributionsDay>)
         fun showFailure(msg: String?)
     }
 
     interface Model {
-        fun getUserContributions(userName: String): Call
+        fun buildRetrofit(): RetrofitService?
         fun getUserName(context: Context): String
         fun saveUserName(context: Context, userName: String)
     }
