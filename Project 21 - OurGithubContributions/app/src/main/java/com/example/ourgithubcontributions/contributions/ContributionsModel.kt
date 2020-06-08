@@ -3,6 +3,7 @@ package com.example.ourgithubcontributions.contributions
 import android.content.Context
 import com.example.ourgithubcontributions.R
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class ContributionsModel : ContributionsInterface.Model{
 
@@ -16,7 +17,8 @@ class ContributionsModel : ContributionsInterface.Model{
 
     override fun buildRetrofit() : RetrofitService? {
         val retrofit: Retrofit? = Retrofit.Builder()
-            .baseUrl(R.string.baseUrl.toString())
+            .baseUrl("https://github.com")
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
 
         return if (retrofit != null) {
