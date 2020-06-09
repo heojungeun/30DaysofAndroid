@@ -10,21 +10,32 @@
         tools:context=".ui.MainActivity"
         android:orientation="vertical">
 
-        <ImageView
-            android:src="@drawable/githubmark32px"
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginVertical="10dp"/>
+            android:paddingHorizontal="10dp">
+
+            <ImageView
+                android:src="@drawable/githubmark64px"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginVertical="10dp" />
+
+            <ImageButton
+                android:id="@+id/btn_add"
+                android:src="@drawable/ic_add_black_35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:layout_gravity="end|center_vertical"/>
+
+        </FrameLayout>
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-<!--            <androidx.recyclerview.widget.RecyclerView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"/>-->
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
