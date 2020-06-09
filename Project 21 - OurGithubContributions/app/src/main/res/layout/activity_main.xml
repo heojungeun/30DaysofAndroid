@@ -26,14 +26,22 @@
 <!--                android:layout_width="match_parent"-->
 <!--                android:layout_height="wrap_content"/>-->
 
-            <com.barryzhang.tcontributionsview.TContributionsView
-                android:id="@+id/MainContributionView"
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:contributions_item_height="10dp"
-                app:contributions_item_space="1dp"
-                app:contributions_item_width="10dp"
-                android:visibility="gone"/>
+                android:scrollbars="none"
+                android:scrollX="-800px">
+
+                <com.barryzhang.tcontributionsview.TContributionsView
+                    android:id="@+id/MainContributionView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:contributions_item_height="7dp"
+                    app:contributions_item_space="1dp"
+                    app:contributions_item_width="7dp"
+                    android:visibility="gone"/>
+
+            </HorizontalScrollView>
 
             <LinearLayout
                 android:orientation="horizontal"

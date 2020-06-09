@@ -21,7 +21,7 @@ object Converter {
             //val color = Color.parseColor(matcher.group(1))
             val color = matcher.group(1).toString()
             val dataCount = Integer.parseInt(matcher.group(2))
-            val day = matcher.group(3).replace("-", "")
+            val day = matcher.group(3).toString()
 
             val contributionTmp =
                 ContributionsDay(

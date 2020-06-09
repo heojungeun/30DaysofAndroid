@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
 //        adapter.put("2020-05-15", 3)
 //        adapter.put("2020-05-14", 2)
 //        contributionsView.adapter = adapter
-        adapter.weekCount = 26
+        adapter.weekCount = cbList.size / 7 + 1
         adapter.setEndDay(cbList.last().day)
         cbList.forEach {
             val lev = when(it.color){
