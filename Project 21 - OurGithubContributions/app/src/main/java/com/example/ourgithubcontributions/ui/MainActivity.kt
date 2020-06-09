@@ -2,6 +2,7 @@ package com.example.ourgithubcontributions.ui
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.barryzhang.tcontributionsview.TContributionsView
@@ -88,15 +89,16 @@ class MainActivity : AppCompatActivity() {
         adapter.setEndDay(cbList.last().day)
         cbList.forEach {
             val lev = when(it.color){
-                R.color.colorFirst -> 1
-                R.color.colorSecond -> 2
-                R.color.colorThird -> 3
-                R.color.colorAccent -> 4
+                "#c6e48b" -> 1
+                "#7bc96f" -> 2
+                "#239a3b"-> 3
+                "#196127" -> 4
                 else -> 0
             }
             adapter.put(it.day, lev)
         }
         contributionsView.adapter = adapter
+        contributionsView.visibility = View.VISIBLE
     }
 
 }

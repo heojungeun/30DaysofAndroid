@@ -32,7 +32,8 @@
                 android:layout_height="wrap_content"
                 app:contributions_item_height="10dp"
                 app:contributions_item_space="1dp"
-                app:contributions_item_width="10dp"/>
+                app:contributions_item_width="10dp"
+                android:visibility="gone"/>
 
             <LinearLayout
                 android:orientation="horizontal"
