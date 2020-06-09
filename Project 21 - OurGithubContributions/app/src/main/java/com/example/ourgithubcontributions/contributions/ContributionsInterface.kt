@@ -1,7 +1,7 @@
 package com.example.ourgithubcontributions.contributions
 
 import android.content.Context
-import android.telecom.Call
+import okhttp3.Call
 import com.example.ourgithubcontributions.data.ContributionsDay
 
 interface ContributionsInterface {
@@ -16,7 +16,7 @@ interface ContributionsInterface {
     }
 
     interface Model {
-        fun buildRetrofit(): RetrofitService?
+        fun buildRetrofit(userName: String): RetrofitService?
         fun getUserName(context: Context): String
         fun saveUserName(context: Context, userName: String)
     }

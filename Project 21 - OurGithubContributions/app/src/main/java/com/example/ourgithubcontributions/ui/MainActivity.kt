@@ -1,95 +1,102 @@
 package com.example.ourgithubcontributions.ui
 
-import android.app.Activity
-import android.appwidget.AppWidgetManager
-import android.content.ComponentName
-import android.content.ContentValues
-import android.content.Intent
-import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import com.example.ourgithubcontributions.ContributionsTotalProvider
+import com.barryzhang.tcontributionsview.TContributionsView
+import com.barryzhang.tcontributionsview.adapter.DateContributionsAdapter
 import com.example.ourgithubcontributions.Converter
 import com.example.ourgithubcontributions.R
-import com.example.ourgithubcontributions.contributions.ContributionsInterface
+import com.example.ourgithubcontributions.contributions.RetrofitClient
+import com.example.ourgithubcontributions.contributions.RetrofitService
 import com.example.ourgithubcontributions.data.ContributionsDay
-import com.example.ourgithubcontributions.contributions.ContributionsModel
-import com.example.ourgithubcontributions.contributions.ContributionsPresenter
-import com.example.ourgithubcontributions.data.DBHelper
-import com.example.ourgithubcontributions.data.DBHelper.Companion.TABLE_NAME
 import com.example.ourgithubcontributions.databinding.ActivityMainBinding
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.example.ourgithubcontributions.toast
+import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.*
+import retrofit2.converter.gson.GsonConverterFactory
 
-class MainActivity : AppCompatActivity(), ContributionsInterface.View {
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var retrofit: Retrofit
+    private lateinit var retrofitService: RetrofitService
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        setRetrofit()
 
-        val model = ContributionsModel()
+        val cbView = findViewById<TContributionsView>(R.id.MainContributionView)
 
-        val name = model.getUserName(this)
-        binding.editUsername.setText(name)
-        binding.editUsername.setSelection(name.length)
-
-        val mPresenter = ContributionsPresenter(this, model)
-
-        binding.btnUpdate.setOnClickListener {
-            val userName = binding.editUsername.text.toString()
-            if (userName.isEmpty()){
-                toast("User Name can't be blank")
+        btn_update.setOnClickListener {
+            val edtStr = edit_username.text.toString()
+            if(edtStr.isNullOrEmpty()){
+                toast("There is not userName")
                 return@setOnClickListener
             }
-            model.saveUserName(this, userName)
-            mPresenter.initUserContributions(userName)
+            getContributions(edtStr, cbView)
         }
     }
 
-    private fun toast(response: String){
-        Toast.makeText(this,response,Toast.LENGTH_SHORT).show()
+    private fun setRetrofit() {
+        retrofit = RetrofitClient.getInstance()
+        retrofitService = retrofit.create(RetrofitService::class.java)
     }
 
-    override fun showContributions(list: List<ContributionsDay>){
+    private fun getContributions(userName: String, tcbview: TContributionsView) {
+        retrofitService.getContributions(userName).enqueue(object : Callback<String> {
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                toast("Fail retrofit connect")
+                Log.e("MainActivity",t.message)
+            }
 
-        val uri = Uri.parse("content://${applicationInfo.packageName}.providers/$TABLE_NAME")
-        list.forEach {
-            val values = ContentValues()
-            values.put(DBHelper.COLUMN_COLOR, it.color)
-            values.put(DBHelper.COLUMN_DATA_COUNT, it.dataCount)
-            values.put(DBHelper.COLUMN_DATE, it.day)
-            contentResolver.insert(uri, values)
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                if (response.isSuccessful){
+                    val res : String = response.body().toString()
+                    if (res.isNotEmpty()){
+                        val list = Converter.svgToContributionsList(res)
+                        if (list.isNotEmpty())
+                            useDateContributionsAdapter(tcbview, list)
+                    }
+                }
+            }
+        })
+
+    }
+
+    private fun useDateContributionsAdapter(contributionsView: TContributionsView, cbList: List<ContributionsDay>) {
+        val adapter: DateContributionsAdapter = object : DateContributionsAdapter() {
+            override fun mapDate(date: String): String {
+                return if (date.contains("T")) {
+                    date.split("T").toTypedArray()[0]
+                } else date
+            }
         }
 
-        updateContributionsList()
-
-        finish()
-    }
-
-    override fun showFailure(msg: String?) {
-        runOnUiThread {
-            if (msg != null)
-                toast(msg)
-            else
-                toast("Fail server connect")
+        // 테스트용 데이터
+//        adapter.weekCount = 10
+//        adapter.setEndDay("2020-06-09")
+//        adapter.put("2020-06-01", 1)
+//        adapter.put("2020-05-17", 4)
+//        adapter.put("2020-05-16", 4)
+//        adapter.put("2020-05-15", 3)
+//        adapter.put("2020-05-14", 2)
+//        contributionsView.adapter = adapter
+        adapter.weekCount = 26
+        adapter.setEndDay(cbList.last().day)
+        cbList.forEach {
+            val lev = when(it.color){
+                R.color.colorFirst -> 1
+                R.color.colorSecond -> 2
+                R.color.colorThird -> 3
+                R.color.colorAccent -> 4
+                else -> 0
+            }
+            adapter.put(it.day, lev)
         }
-    }
-
-    private fun updateContributionsList(){
-        val name = ComponentName(this, ContributionsTotalProvider::class.java)
-        val widgetIds = AppWidgetManager.getInstance(this).getAppWidgetIds(name)
-        val updateWidgetListIntent = Intent(this, ContributionsTotalProvider::class.java)
-
-        updateWidgetListIntent.action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
-        updateWidgetListIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, widgetIds)
-        updateWidgetListIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetIds.last())
-        sendBroadcast(updateWidgetListIntent)
-        setResult(Activity.RESULT_OK,updateWidgetListIntent)
+        contributionsView.adapter = adapter
     }
 
 }

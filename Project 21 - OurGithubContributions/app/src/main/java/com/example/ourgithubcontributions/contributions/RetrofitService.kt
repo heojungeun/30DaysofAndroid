@@ -7,7 +7,7 @@ import retrofit2.http.Path
 
 interface RetrofitService {
 
-    @GET("/users/{user}/contributions")
-    fun getContrib(@Path("user") user: String?): Call<String>
+    @GET("users/{user}/contributions")
+    fun getContributions(@Path("user") user: String?): Call<String>
 
 }
