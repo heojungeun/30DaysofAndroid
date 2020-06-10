@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.MainActivity"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:context=".ui.MainActivity">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -16,63 +15,60 @@
             android:paddingHorizontal="10dp">
 
             <ImageView
-                android:src="@drawable/githubmark64px"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginVertical="10dp" />
+                android:layout_marginVertical="10dp"
+                android:src="@drawable/githubmark64px" />
 
             <ImageButton
                 android:id="@+id/btn_add"
-                android:src="@drawable/ic_add_black_35dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
                 android:background="@android:color/transparent"
-                android:layout_gravity="end|center_vertical"/>
+                android:src="@drawable/ic_add_black_35dp" />
 
         </FrameLayout>
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="My Contributions" />
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scrollbars="none"
-                android:scrollX="-800px">
+                android:scrollX="-800px"
+                android:scrollbars="none">
 
                 <com.barryzhang.tcontributionsview.TContributionsView
                     android:id="@+id/MainContributionView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     app:contributions_item_height="7dp"
                     app:contributions_item_space="1dp"
-                    app:contributions_item_width="7dp"
-                    android:visibility="gone"/>
+                    app:contributions_item_width="7dp" />
 
             </HorizontalScrollView>
 
-            <LinearLayout
-                android:orientation="horizontal"
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Their Contributions" />
 
-                <EditText
-                    android:id="@+id/edit_username"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/round_edt"/>
-
-                <Button
-                    android:id="@+id/btn_update"
-                    android:text="가져오기"
-                    android:layout_width="wrap_content"
-                    android:layout_height="60dp"/>
-
-            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/tcbRcview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 

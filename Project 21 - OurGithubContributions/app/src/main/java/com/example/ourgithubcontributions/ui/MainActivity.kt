@@ -1,8 +1,12 @@
 package com.example.ourgithubcontributions.ui
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.widget.EditText
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.barryzhang.tcontributionsview.TContributionsView
@@ -12,7 +16,6 @@ import com.example.ourgithubcontributions.R
 import com.example.ourgithubcontributions.contributions.RetrofitClient
 import com.example.ourgithubcontributions.contributions.RetrofitService
 import com.example.ourgithubcontributions.data.ContributionsDay
-import com.example.ourgithubcontributions.databinding.ActivityMainBinding
 import com.example.ourgithubcontributions.toast
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.*
@@ -23,27 +26,54 @@ class MainActivity : AppCompatActivity() {
     private lateinit var retrofit: Retrofit
     private lateinit var retrofitService: RetrofitService
 
+    private lateinit var builder: AlertDialog.Builder
+    private lateinit var dialogView: View
+    private lateinit var dialogEditText: EditText
+    private lateinit var dialog: AlertDialog
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         setRetrofit()
+        setAlertDialog()
 
-        val cbView = findViewById<TContributionsView>(R.id.MainContributionView)
+        setClickListener()
+    }
 
-        btn_update.setOnClickListener {
-            val edtStr = edit_username.text.toString()
-            if(edtStr.isNullOrEmpty()){
-                toast("There is not userName")
-                return@setOnClickListener
+    private fun setAlertDialog(){
+        builder = AlertDialog.Builder(this)
+        dialogView = layoutInflater.inflate(R.layout.dialog_add, null)
+        dialogEditText = dialogView.findViewById<EditText>(R.id.dialogEdt)
+        builder.setView(dialogView)
+            .setPositiveButton("Add"){ dialog: DialogInterface?, which: Int ->
+                sendUsername(dialogEditText.text.toString())
             }
-            getContributions(edtStr, cbView)
-        }
+            .setNegativeButton("Cancel"){dialog: DialogInterface?, which: Int ->
+                // nothing
+            }
+        dialog = builder.create()
     }
 
     private fun setRetrofit() {
         retrofit = RetrofitClient.getInstance()
         retrofitService = retrofit.create(RetrofitService::class.java)
+    }
+
+    private fun setClickListener(){
+        btn_add.setOnClickListener {
+            dialog.show()
+        }
+    }
+
+    private fun sendUsername(edtStr : String){
+        val cbView = findViewById<TContributionsView>(R.id.MainContributionView)
+        if(edtStr.isEmpty()){
+            toast("There is not userName")
+            return
+        }
+        getContributions(edtStr, cbView)
     }
 
     private fun getContributions(userName: String, tcbview: TContributionsView) {
@@ -76,15 +106,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // 테스트용 데이터
-//        adapter.weekCount = 10
-//        adapter.setEndDay("2020-06-09")
-//        adapter.put("2020-06-01", 1)
-//        adapter.put("2020-05-17", 4)
-//        adapter.put("2020-05-16", 4)
-//        adapter.put("2020-05-15", 3)
-//        adapter.put("2020-05-14", 2)
-//        contributionsView.adapter = adapter
         adapter.weekCount = cbList.size / 7 + 1
         adapter.setEndDay(cbList.last().day)
         cbList.forEach {
