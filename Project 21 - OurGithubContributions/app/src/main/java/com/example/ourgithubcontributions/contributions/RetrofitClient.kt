@@ -1,23 +1,19 @@
 package com.example.ourgithubcontributions.contributions
 
-import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 
 object RetrofitClient {
 
-    private var instance: Retrofit? = null
-    //private val gson = GsonBuilder().setLenient().create()
+    private const val URL = "https://github.com/"
 
-    fun getInstance(): Retrofit {
-        if (instance == null){
-            instance = Retrofit.Builder()
-                .addConverterFactory(ScalarsConverterFactory.create())
-                .baseUrl("https://github.com/")
-                .build()
-        }
+    private val builder: Retrofit.Builder = Retrofit.Builder()
+        .baseUrl(URL)
+        .addConverterFactory(ScalarsConverterFactory.create())
 
-        return instance!!
+    private val retrofit = builder.build()
+
+    fun <S> createService(serviceClass: Class<S>?): S {
+        return retrofit.create(serviceClass)
     }
 }
