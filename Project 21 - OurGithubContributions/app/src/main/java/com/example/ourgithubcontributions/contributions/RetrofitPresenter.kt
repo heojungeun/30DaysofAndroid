@@ -21,17 +21,17 @@ class RetrofitPresenter{
 
         RetrofitClient.createService(RetrofitService::class.java).getContributions(userName).enqueue(object : Callback<String> {
             override fun onFailure(call: Call<String>, t: Throwable) {
-                Log.e("LoginActivity", t.message)
+                Log.e("LoginActivity", t.message.toString())
                 context.toast("There is not userName")
             }
 
             override fun onResponse(call: Call<String>, response: Response<String>){
-                if(response.raw().code()==404){
-                    context.toast("There is not userName")
-                }else{
+                if(response.isSuccessful){
                     val intent = Intent(context, MainActivity::class.java)
                     intent.putExtra("MyCb",userName)
                     context.startActivity(intent)
+                }else{
+                    context.toast("There is not userName")
                 }
             }
         })
@@ -40,7 +40,7 @@ class RetrofitPresenter{
     fun getContributions(userName: String, tcbview: TContributionsView){
         RetrofitClient.createService(RetrofitService::class.java).getContributions(userName).enqueue(object : Callback<String> {
             override fun onFailure(call: Call<String>, t: Throwable) {
-                Log.e("MainActivity", t.message)
+                Log.e("MainActivity", t.message.toString())
             }
 
             override fun onResponse(call: Call<String>, response: Response<String>) {
@@ -48,8 +48,9 @@ class RetrofitPresenter{
                     val res: String = response.body().toString()
                     if (res.isNotEmpty()) {
                         val list = Converter.svgToContributionsList(res)
-                        if (list.isNotEmpty())
+                        if (list.isNotEmpty()) {
                             useDateContributionsAdapter(tcbview, list)
+                        }
                     }
                 }
             }
