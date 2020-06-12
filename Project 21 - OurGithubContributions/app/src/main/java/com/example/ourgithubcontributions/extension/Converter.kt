@@ -1,7 +1,6 @@
-package com.example.ourgithubcontributions
+package com.example.ourgithubcontributions.extension
 
-import android.graphics.Color
-import com.example.ourgithubcontributions.data.ContributionsDay
+import com.example.ourgithubcontributions.data.model.ContributionsDay
 import java.util.regex.Pattern
 
 object Converter {

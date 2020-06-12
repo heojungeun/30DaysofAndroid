@@ -1,15 +1,14 @@
-package com.example.ourgithubcontributions.contributions
+package com.example.ourgithubcontributions.Retrofit
 
 import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.view.View
-import androidx.core.content.ContextCompat.startActivity
 import com.barryzhang.tcontributionsview.TContributionsView
 import com.barryzhang.tcontributionsview.adapter.DateContributionsAdapter
-import com.example.ourgithubcontributions.Converter
-import com.example.ourgithubcontributions.data.ContributionsDay
-import com.example.ourgithubcontributions.toast
+import com.example.ourgithubcontributions.extension.Converter
+import com.example.ourgithubcontributions.data.model.ContributionsDay
+import com.example.ourgithubcontributions.extension.toast
 import com.example.ourgithubcontributions.ui.MainActivity
 import retrofit2.Call
 import retrofit2.Callback

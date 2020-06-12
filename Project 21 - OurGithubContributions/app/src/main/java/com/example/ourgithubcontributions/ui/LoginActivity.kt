@@ -1,12 +1,10 @@
 package com.example.ourgithubcontributions.ui
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.barryzhang.tcontributionsview.TContributionsView
 import com.example.ourgithubcontributions.R
-import com.example.ourgithubcontributions.contributions.RetrofitPresenter
-import com.example.ourgithubcontributions.toast
+import com.example.ourgithubcontributions.Retrofit.RetrofitPresenter
+import com.example.ourgithubcontributions.extension.toast
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {

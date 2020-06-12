@@ -1,4 +1,4 @@
-package com.example.ourgithubcontributions
+package com.example.ourgithubcontributions.extension
 
 import android.content.Context
 import android.widget.Toast

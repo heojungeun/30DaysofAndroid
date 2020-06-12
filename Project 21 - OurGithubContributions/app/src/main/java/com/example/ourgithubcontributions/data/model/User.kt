@@ -1,4 +1,4 @@
-package com.example.ourgithubcontributions.data
+package com.example.ourgithubcontributions.data.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

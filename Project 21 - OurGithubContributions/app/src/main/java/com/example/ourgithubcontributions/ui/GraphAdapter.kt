@@ -1,4 +1,4 @@
-package com.example.ourgithubcontributions
+package com.example.ourgithubcontributions.ui
 
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +10,11 @@ class GraphAdapter : RecyclerView.Adapter<GraphAdapter.ViewHolder>(){
         TODO("Not yet implemented")
     }
 
-    override fun onBindViewHolder(holder: GraphAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         TODO("Not yet implemented")
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GraphAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         TODO("Not yet implemented")
     }
 

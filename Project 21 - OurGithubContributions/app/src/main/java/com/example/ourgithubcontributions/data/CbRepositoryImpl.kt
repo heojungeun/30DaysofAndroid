@@ -1,27 +1,29 @@
 package com.example.ourgithubcontributions.data
 
 import android.app.Application
-import android.content.Context
 import androidx.lifecycle.LiveData
+import com.example.ourgithubcontributions.data.model.User
+import io.reactivex.Completable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import okhttp3.Dispatcher
 import kotlin.coroutines.CoroutineContext
 
-class CbRepositoryImpl(application: Application) : CbRepository, CoroutineScope {
+class CbRepositoryImpl() : CbRepository, CoroutineScope {
 
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main
 
-    private val cbDao = CbDatabase.getInstance(application).cbDao()
+    private val cbDao = CbDatabase.getInstance().cbDao()
 
-    companion object{
+    companion object {
         @Volatile
         private var INSTANCE: CbRepositoryImpl? = null
 
-        fun getInstance(application: Application) =
-            INSTANCE ?: synchronized(this){
-                INSTANCE ?: CbRepositoryImpl(application).also { INSTANCE = it }
+        fun getInstance() =
+            INSTANCE ?: synchronized(this) {
+                INSTANCE ?: CbRepositoryImpl().also { INSTANCE = it }
             }
     }
 
@@ -29,15 +31,21 @@ class CbRepositoryImpl(application: Application) : CbRepository, CoroutineScope 
         return cbDao.getAll()
     }
 
-    override fun delete(user: User) {
-        TODO("Not yet implemented")
+    override fun delete(user: User): Completable {
+        return cbDao.delete(user)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
     }
 
-    override fun deleteAll() {
-        TODO("Not yet implemented")
+    override fun deleteAll(): Completable {
+        return cbDao.deleteAll()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
     }
 
-    override fun insertUser(user: User) {
-        TODO("Not yet implemented")
+    override fun insertUser(user: User): Completable {
+        return cbDao.insertUser(user)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
     }
 }

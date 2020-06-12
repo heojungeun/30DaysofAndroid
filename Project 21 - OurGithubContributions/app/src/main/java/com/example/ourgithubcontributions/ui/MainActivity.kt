@@ -2,25 +2,15 @@ package com.example.ourgithubcontributions.ui
 
 import android.content.DialogInterface
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import com.barryzhang.tcontributionsview.TContributionsView
-import com.barryzhang.tcontributionsview.adapter.DateContributionsAdapter
-import com.example.ourgithubcontributions.Converter
 import com.example.ourgithubcontributions.R
-import com.example.ourgithubcontributions.contributions.RetrofitClient
-import com.example.ourgithubcontributions.contributions.RetrofitPresenter
-import com.example.ourgithubcontributions.contributions.RetrofitService
-import com.example.ourgithubcontributions.data.ContributionsDay
-import com.example.ourgithubcontributions.toast
+import com.example.ourgithubcontributions.Retrofit.RetrofitPresenter
+import com.example.ourgithubcontributions.extension.toast
 import kotlinx.android.synthetic.main.activity_main.*
-import retrofit2.*
-import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
