@@ -6,7 +6,7 @@ import android.content.SharedPreferences
 
 object SharedPreferenceManager {
 
-    private const val PREF_TOKEN = "username"
+    private const val PREF_TOKEN = "-1"
     private const val NAME = "MainUser"
     private const val MODE = Context.MODE_PRIVATE
     private lateinit var preferences: SharedPreferences
