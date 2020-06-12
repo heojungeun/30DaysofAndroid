@@ -6,7 +6,7 @@ import io.reactivex.Completable
 
 interface CbRepository {
     fun getAll(): LiveData<List<User>>
-    fun deleteAll(): Completable
-    fun delete(user: User): Completable
-    fun insertUser(user: User): Completable
+    fun deleteAll()
+    fun delete(user: User)
+    fun insertUser(user: User)
 }

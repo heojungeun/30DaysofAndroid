@@ -1,4 +1,4 @@
-package com.example.ourgithubcontributions.Retrofit
+package com.example.ourgithubcontributions.retrofit
 
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory

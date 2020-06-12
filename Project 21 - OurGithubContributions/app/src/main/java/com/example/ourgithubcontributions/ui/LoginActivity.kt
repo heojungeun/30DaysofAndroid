@@ -3,7 +3,7 @@ package com.example.ourgithubcontributions.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ourgithubcontributions.R
-import com.example.ourgithubcontributions.Retrofit.RetrofitPresenter
+import com.example.ourgithubcontributions.retrofit.RetrofitPresenter
 import com.example.ourgithubcontributions.extension.toast
 import kotlinx.android.synthetic.main.activity_login.*
 

@@ -11,12 +11,12 @@ interface CbDao {
     fun getAll(): LiveData<List<User>>
 
     @Query("DELETE FROM User")
-    fun deleteAll(): Completable
+    fun deleteAll()
 
     @Delete
-    fun delete(user: User?): Completable
+    fun delete(user: User?)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertUser(user: User): Completable
+    fun insertUser(user: User)
 
 }

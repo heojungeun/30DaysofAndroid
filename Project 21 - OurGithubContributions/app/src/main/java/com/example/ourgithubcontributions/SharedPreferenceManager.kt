@@ -11,11 +11,11 @@ object SharedPreferenceManager {
     private const val MODE = Context.MODE_PRIVATE
     private lateinit var preferences: SharedPreferences
 
-    fun init(context: Context){
+    fun init(context: Context) {
         preferences = context.getSharedPreferences(NAME, MODE)
     }
 
-    private inline fun SharedPreferences.edit(operation: (SharedPreferences.Editor) -> Unit){
+    private inline fun SharedPreferences.edit(operation: (SharedPreferences.Editor) -> Unit) {
         val editor = edit()
         operation(editor)
         editor.apply()
@@ -23,7 +23,7 @@ object SharedPreferenceManager {
 
     var token: String
         get() = preferences.getString(PREF_TOKEN, "").toString()
-        set(value) = preferences.edit{
+        set(value) = preferences.edit {
             it.putString(PREF_TOKEN, value)
         }
 }

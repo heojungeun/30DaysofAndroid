@@ -1,4 +1,4 @@
-package com.example.ourgithubcontributions.Retrofit
+package com.example.ourgithubcontributions.retrofit
 
 import retrofit2.Call
 import retrofit2.http.GET

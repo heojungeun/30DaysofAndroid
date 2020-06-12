@@ -1,4 +1,4 @@
-package com.example.ourgithubcontributions.Retrofit
+package com.example.ourgithubcontributions.retrofit
 
 import android.content.Context
 import android.content.Intent
