@@ -8,11 +8,5 @@ import androidx.room.PrimaryKey
 data class User(
     @PrimaryKey
     @ColumnInfo(name = "username")
-    var userName: String,
-
-    @ColumnInfo(name = "cblist")
-    var cbList: List<ContributionsDay>,
-
-    @ColumnInfo(name = "ismine")
-    var isMine: Int
+    var userName: String
 )

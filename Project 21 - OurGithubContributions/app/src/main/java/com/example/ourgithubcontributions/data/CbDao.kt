@@ -10,7 +10,7 @@ interface CbDao {
     @Query("SELECT * FROM User")
     fun getAll(): LiveData<List<User>>
 
-    @Query("DELETE FROM User WHERE ismine=0")
+    @Query("DELETE FROM User")
     fun deleteAll(): Completable
 
     @Delete

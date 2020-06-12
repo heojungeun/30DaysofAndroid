@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import com.barryzhang.tcontributionsview.TContributionsView
 import com.barryzhang.tcontributionsview.adapter.DateContributionsAdapter
+import com.example.ourgithubcontributions.SharedPreferenceManager
 import com.example.ourgithubcontributions.extension.Converter
 import com.example.ourgithubcontributions.data.model.ContributionsDay
 import com.example.ourgithubcontributions.extension.toast
@@ -26,8 +27,8 @@ class RetrofitPresenter{
 
             override fun onResponse(call: Call<String>, response: Response<String>){
                 if(response.isSuccessful){
+                    SharedPreferenceManager.token = userName
                     val intent = Intent(context, MainActivity::class.java)
-                    intent.putExtra("MyCb",userName)
                     context.startActivity(intent)
                 }else{
                     context.toast("There is not userName")

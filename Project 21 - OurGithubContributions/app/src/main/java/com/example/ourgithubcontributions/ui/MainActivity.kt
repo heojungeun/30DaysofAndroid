@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.barryzhang.tcontributionsview.TContributionsView
 import com.example.ourgithubcontributions.R
 import com.example.ourgithubcontributions.Retrofit.RetrofitPresenter
+import com.example.ourgithubcontributions.SharedPreferenceManager
 import com.example.ourgithubcontributions.extension.toast
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -30,13 +31,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun init(){
-        val MyCb = intent.getStringExtra("MyCb")
-        if(MyCb != null){
-            // room save
-            sendUsername(MyCb)
+        val myCb = SharedPreferenceManager.token
+        if(myCb.isEmpty()){
+            toast("SharedPreference error")
+            return
         }else{
             // room get
+            sendUsername(myCb)
         }
+    }
+
+    private fun sendUsername(edtStr: String) {
+        val cbView = findViewById<TContributionsView>(R.id.MainContributionView)
+        RetrofitPresenter().getContributions(edtStr, cbView)
     }
 
     private fun setAlertDialog() {
@@ -57,15 +64,6 @@ class MainActivity : AppCompatActivity() {
         btn_add.setOnClickListener {
             dialog.show()
         }
-    }
-
-    private fun sendUsername(edtStr: String) {
-        val cbView = findViewById<TContributionsView>(R.id.MainContributionView)
-        if (edtStr.isEmpty()) {
-            toast("There is not userName")
-            return
-        }
-        RetrofitPresenter().getContributions(edtStr, cbView)
     }
 
 }

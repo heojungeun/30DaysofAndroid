@@ -22,8 +22,8 @@ object SharedPreferenceManager {
     }
 
     var token: String
-    get() = preferences.getString(PREF_TOKEN, "").toString()
-    set(value) = preferences.edit{
-        it.putString(PREF_TOKEN, value)
-    }
+        get() = preferences.getString(PREF_TOKEN, "").toString()
+        set(value) = preferences.edit{
+            it.putString(PREF_TOKEN, value)
+        }
 }
