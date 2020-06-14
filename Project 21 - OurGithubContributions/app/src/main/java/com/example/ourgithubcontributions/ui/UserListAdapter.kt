@@ -1,5 +1,6 @@
 package com.example.ourgithubcontributions.ui
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,8 +27,8 @@ class UserListAdapter(private val cbList: List<User>) : RecyclerView.Adapter<Use
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        private val item_name = itemView.findViewById<TextView>(R.id.eachName)
-        private val item_cbview = itemView.findViewById<TContributionsView>(R.id.eachCbView)
+        var item_name = itemView.findViewById<TextView>(R.id.eachName)
+        var item_cbview = itemView.findViewById<TContributionsView>(R.id.eachCbView)
 
         fun bind(user: User){
             item_name.text = user.userName
@@ -35,8 +36,4 @@ class UserListAdapter(private val cbList: List<User>) : RecyclerView.Adapter<Use
         }
     }
 
-//    fun setList(newList: List<User>){
-//        this.cbList = newList
-//        notifyDataSetChanged()
-//    }
 }

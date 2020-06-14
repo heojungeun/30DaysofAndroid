@@ -2,12 +2,14 @@ package com.example.ourgithubcontributions.ui
 
 import android.content.DialogInterface
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.barryzhang.tcontributionsview.TContributionsView
 import com.example.ourgithubcontributions.R
 import com.example.ourgithubcontributions.retrofit.RetrofitPresenter
@@ -24,9 +26,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var dialogEditText: EditText
     private lateinit var dialog: AlertDialog
 
-    private lateinit var adapter: UserListAdapter
-
     private lateinit var MyCbView: TContributionsView
+    private lateinit var mtheirRcview: RecyclerView
+    private lateinit var madapter: UserListAdapter
 
     private val cbinstance = CbRepositoryInjector.getCbRepositoryImpl()
 
@@ -49,23 +51,24 @@ class MainActivity : AppCompatActivity() {
             return
         } else {
             // my cb load
-            MyCbView = findViewById<TContributionsView>(R.id.MainContributionView)
+            MyCbView = findViewById(R.id.MainContributionView)
             RetrofitPresenter().getContributions(myname, MyCbView)
-        }
-    }
 
-    private fun setAdapter(it: List<User>){
-        adapter = UserListAdapter(it)
-        //adapter.setList(it)
-        val layoutManager = LinearLayoutManager(this)
-        theirRcview.layoutManager = layoutManager
-        theirRcview.adapter = adapter
+            mtheirRcview = findViewById(R.id.theirRcview)
+        }
     }
 
     private fun loadTheirCb() {
         cbinstance.getAll().observe(this, Observer {
             setAdapter(it)
         })
+    }
+
+    private fun setAdapter(it: List<User>){
+        madapter = UserListAdapter(it)
+        val layoutManager = LinearLayoutManager(this)
+        mtheirRcview.layoutManager = layoutManager
+        mtheirRcview.adapter = madapter
     }
 
     private fun setAlertDialog() {

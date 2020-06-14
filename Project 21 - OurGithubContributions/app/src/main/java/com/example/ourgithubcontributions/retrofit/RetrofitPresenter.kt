@@ -5,11 +5,11 @@ import android.content.Intent
 import android.util.Log
 import android.view.View
 import com.barryzhang.tcontributionsview.TContributionsView
-import com.barryzhang.tcontributionsview.adapter.DateContributionsAdapter
 import com.example.ourgithubcontributions.SharedPreferenceManager
 import com.example.ourgithubcontributions.extension.Converter
 import com.example.ourgithubcontributions.data.model.ContributionsDay
 import com.example.ourgithubcontributions.extension.toast
+import com.example.ourgithubcontributions.ui.DateContributionsAdapter
 import com.example.ourgithubcontributions.ui.MainActivity
 import retrofit2.Call
 import retrofit2.Callback
@@ -61,13 +61,8 @@ class RetrofitPresenter{
         contributionsView: TContributionsView,
         cbList: List<ContributionsDay>
     ) {
-        val adapter: DateContributionsAdapter = object : DateContributionsAdapter() {
-            override fun mapDate(date: String): String {
-                return if (date.contains("T")) {
-                    date.split("T").toTypedArray()[0]
-                } else date
-            }
-        }
+
+        val adapter = DateContributionsAdapter()
 
         adapter.weekCount = cbList.size / 7 + 1
         adapter.setEndDay(cbList.last().day)
@@ -81,6 +76,7 @@ class RetrofitPresenter{
             }
             adapter.put(it.day, lev)
         }
+
         contributionsView.adapter = adapter
         contributionsView.visibility = View.VISIBLE
     }
