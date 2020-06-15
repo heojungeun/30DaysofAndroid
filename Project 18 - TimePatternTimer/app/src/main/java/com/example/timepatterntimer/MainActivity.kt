@@ -21,12 +21,17 @@ class MainActivity : AppCompatActivity() {
     private var timerTask: Timer?=null // Timer객체를 가리키는 참조변수
     private var pickTime:Int=0 // 선택한 시간 저장 변수
 
+    private lateinit var mediaPlayer: MediaPlayer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var mediaPlayer: MediaPlayer? = MediaPlayer.create(this, R.raw.bbibbi)
+        mediaPlayer = MediaPlayer.create(this, R.raw.bbibbi)
+        onClickListener()
+    }
 
+    private fun onClickListener(){
         seekbar.setOnSeekBarChangeListener(object : OnCircularSeekBarChangeListener {
             override fun onProgressChanged(
                 circularSeekBar: CircularSeekBar,
@@ -42,8 +47,7 @@ class MainActivity : AppCompatActivity() {
                 textTime.text = String.format("%02d:00", min)
             }
 
-            override fun onStopTrackingTouch(seekBar: CircularSeekBar) {
-            }
+            override fun onStopTrackingTouch(seekBar: CircularSeekBar) {}
 
             override fun onStartTrackingTouch(seekBar: CircularSeekBar) {}
         })
@@ -95,7 +99,7 @@ class MainActivity : AppCompatActivity() {
         overbtn.setOnClickListener {
             isTune = false
             mediaPlayer?.release()
-            mediaPlayer = null
+            //mediaPlayer.reset()
             timeoverlayout.visibility = View.GONE
         }
 
@@ -114,8 +118,4 @@ class MainActivity : AppCompatActivity() {
         pausebtn.visibility = View.GONE
     }
 
-    override fun onStart() {
-        super.onStart()
-
-    }
 }

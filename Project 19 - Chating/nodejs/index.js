@@ -39,6 +39,6 @@ io.on('connection', function(socket){
 });
 
 // 처음에 서버 연결했을 때, 연결 포트 번호 알림
-http.listen(app.get('port'),function(){
-    console.log('Node app is running on port', app.get('port'));
+http.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
 });

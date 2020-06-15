@@ -186,6 +186,8 @@ class pictureBrowserFragment: Fragment, imageIndicatorListener{
     inner class ImagesPagerAdapter() : PagerAdapter() {
         private lateinit var image: ImageView
 
+        var check = 1
+
         override fun getCount(): Int {
             return allImages.size
         }
@@ -208,10 +210,12 @@ class pictureBrowserFragment: Fragment, imageIndicatorListener{
             mllabelbtn.setOnClickListener {
                 val builder = AlertDialog.Builder(context)
                 val dialogView = layoutInflater.inflate(R.layout.dialog_viewer, null)
+
                 var dlbl = dialogView.findViewById<TextView>(R.id.d_photo_info)
                 dlbl.setText("come on!")
 
                 builder.setView(dialogView).create().show()
+
             }
 
 //            mllabelbtn.setOnClickListener {
