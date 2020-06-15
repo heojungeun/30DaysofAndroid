@@ -77,11 +77,13 @@ class MainActivity : AppCompatActivity() {
         dialogEditText = dialogView.findViewById<EditText>(R.id.dialogEdt)
         builder.setView(dialogView)
             .setPositiveButton("Add") { dialog: DialogInterface?, which: Int ->
-                vm.insertUser(User(dialogEditText.text.toString()))
+                vm.insertUser(User(dialogEditText.text.toString(), false))
+                dialogEditText.setText("")
             }
             .setNegativeButton("Cancel") { dialog: DialogInterface?, which: Int ->
-                // nothing
+                dialogEditText.setText("")
             }
+            .setCancelable(false)
         dialog = builder.create()
     }
 

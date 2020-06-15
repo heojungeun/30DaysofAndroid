@@ -18,4 +18,12 @@ class UserViewModel() {
     fun deleteAll(){
         cbinstance.deleteAll()
     }
+
+    fun delete(user: User){
+        cbinstance.delete(user)
+    }
+
+    fun deleteList(clist: List<String>){
+        cbinstance.deleteItems(clist)
+    }
 }

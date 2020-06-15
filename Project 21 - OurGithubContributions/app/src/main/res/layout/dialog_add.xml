@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginVertical="24dp"
+        android:fontFamily="@font/titilliumwebsemibold"
         android:text="Add User"
         android:textAlignment="center"
         android:textColor="@android:color/black"
@@ -21,6 +22,7 @@
         android:id="@+id/dialogEdt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/titilliumwebregular"
         android:hint="input username"
         android:textColor="@android:color/black"
         android:textColorHint="@android:color/darker_gray" />

@@ -8,5 +8,8 @@ import androidx.room.PrimaryKey
 data class User(
     @PrimaryKey
     @ColumnInfo(name = "username")
-    var userName: String
+    var userName: String,
+
+    @ColumnInfo(name = "isSelected")
+    var isSelected: Boolean
 )

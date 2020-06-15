@@ -1,7 +1,10 @@
 package com.example.ourgithubcontributions.ui
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,7 +16,7 @@ import com.example.ourgithubcontributions.extension.toast
 import com.example.ourgithubcontributions.ui.adapter.DelListAdapter
 import kotlinx.android.synthetic.main.activity_setting.*
 
-class SettingActivity: AppCompatActivity() {
+class SettingActivity : AppCompatActivity() {
 
     private lateinit var Myname: String
     private lateinit var del_rcview: RecyclerView
@@ -29,7 +32,7 @@ class SettingActivity: AppCompatActivity() {
         setClickListener()
     }
 
-    private fun init(){
+    private fun init() {
         Myname = SharedPreferenceManager.token
 
         del_rcview = findViewById(R.id.pre_rcview_del)
@@ -45,24 +48,37 @@ class SettingActivity: AppCompatActivity() {
         del_rcview.adapter = madapter
     }
 
-    private fun setClickListener(){
+    private fun setClickListener() {
         btn_back.setOnClickListener {
             finish()
         }
 
         btn_del.setOnClickListener {
-
+            var res = madapter.getCheckedList()
+            when (res.size) {
+                0 -> toast("Select user")
+                1 -> vm.delete(User(res[0], true))
+                madapter.itemCount -> vm.deleteAll()
+                else -> vm.deleteList(res)
+            }
         }
 
         btn_logout.setOnClickListener {
-            if (logout_edt.text.toString() == Myname){
+            if (logout_edt.text.toString() == Myname) {
                 SharedPreferenceManager.token = ""
                 vm.deleteAll()
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
-            }else{
+            } else {
                 toast("Please type your username")
             }
         }
+    }
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        var imm: InputMethodManager =
+            getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+        return true
     }
 }

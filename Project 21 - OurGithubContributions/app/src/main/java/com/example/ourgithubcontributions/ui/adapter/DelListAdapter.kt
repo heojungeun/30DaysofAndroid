@@ -26,11 +26,24 @@ class DelListAdapter (private val cbList: List<User>) : RecyclerView.Adapter<Del
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var item_name = itemView.findViewById<TextView>(R.id.del_username)
-        var item_cbx = itemView.findViewById<CheckBox>(R.id.del_checkbox)
+        var item_chx = itemView.findViewById<CheckBox>(R.id.del_checkbox)
 
         fun bind(user: User){
             item_name.text = user.userName
+            item_chx.setOnCheckedChangeListener { buttonView, isChecked ->
+                user.isSelected = isChecked
+            }
         }
+    }
+
+    fun getCheckedList(): List<String>{
+        var chlist: List<String> = listOf()
+        cbList.forEach {
+            if(it.isSelected){
+                chlist = chlist.plus(it.userName)
+            }
+        }
+        return chlist
     }
 
 }
