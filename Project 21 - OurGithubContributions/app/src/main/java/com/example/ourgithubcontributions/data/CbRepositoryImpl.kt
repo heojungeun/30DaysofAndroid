@@ -37,7 +37,7 @@ class CbRepositoryImpl() : CbRepository, CoroutineScope {
         launch { deleteBG(user) }
     }
 
-    override fun deleteItems(list: List<User>) {
+    override fun deleteItems(list: List<String>) {
         launch { deleteItemsBG(list) }
     }
 
@@ -55,7 +55,7 @@ class CbRepositoryImpl() : CbRepository, CoroutineScope {
         }
     }
 
-    private suspend fun deleteItemsBG(list: List<User>){
+    private suspend fun deleteItemsBG(list: List<String>){
         withContext(Dispatchers.IO){
             cbDao.deleteItems(list)
         }

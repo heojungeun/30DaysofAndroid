@@ -12,17 +12,17 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
             android:paddingHorizontal="20dp"
-            android:paddingVertical="10dp"
-            android:background="@color/colorPrimaryDark">
+            android:paddingVertical="10dp">
 
             <ImageButton
                 android:id="@+id/btn_set"
-                android:src="@drawable/ic_settings_white_35dp"
-                android:background="@android:color/transparent"
-                android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_settings_white_35dp" />
 
             <ImageView
                 android:layout_width="40dp"
@@ -50,7 +50,12 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="My Contributions" />
+                android:background="@drawable/bottom_line"
+                android:fontFamily="@font/titilliumwebsemibold"
+                android:paddingBottom="2dp"
+                android:layout_marginBottom="5dp"
+                android:text="My Contributions"
+                android:textColor="@color/colorPrimaryDark" />
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
@@ -73,7 +78,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Their Contributions" />
+                android:background="@drawable/bottom_line"
+                android:fontFamily="@font/titilliumwebsemibold"
+                android:paddingBottom="2dp"
+                android:text="Their Contributions"
+                android:textColor="@color/colorPrimaryDark" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/theirRcview"

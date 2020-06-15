@@ -1,8 +1,8 @@
 package com.example.ourgithubcontributions.ui
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
@@ -14,9 +14,9 @@ import com.barryzhang.tcontributionsview.TContributionsView
 import com.example.ourgithubcontributions.R
 import com.example.ourgithubcontributions.retrofit.RetrofitPresenter
 import com.example.ourgithubcontributions.SharedPreferenceManager
-import com.example.ourgithubcontributions.data.CbRepositoryInjector
 import com.example.ourgithubcontributions.data.model.User
 import com.example.ourgithubcontributions.extension.toast
+import com.example.ourgithubcontributions.ui.adapter.UserListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mtheirRcview: RecyclerView
     private lateinit var madapter: UserListAdapter
 
-    private val cbinstance = CbRepositoryInjector.getCbRepositoryImpl()
+    private val vm: UserViewModel = UserViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,12 +59,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadTheirCb() {
-        cbinstance.getAll().observe(this, Observer {
+        vm.userList.observe(this, Observer {
             setAdapter(it)
         })
     }
 
-    private fun setAdapter(it: List<User>){
+    private fun setAdapter(it: List<User>) {
         madapter = UserListAdapter(it)
         val layoutManager = LinearLayoutManager(this)
         mtheirRcview.layoutManager = layoutManager
@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
         dialogEditText = dialogView.findViewById<EditText>(R.id.dialogEdt)
         builder.setView(dialogView)
             .setPositiveButton("Add") { dialog: DialogInterface?, which: Int ->
-                cbinstance.insertUser(User(dialogEditText.text.toString()))
+                vm.insertUser(User(dialogEditText.text.toString()))
             }
             .setNegativeButton("Cancel") { dialog: DialogInterface?, which: Int ->
                 // nothing
@@ -88,6 +88,11 @@ class MainActivity : AppCompatActivity() {
     private fun setClickListener() {
         btn_add.setOnClickListener {
             dialog.show()
+        }
+
+        btn_set.setOnClickListener {
+            val intent = Intent(this, SettingActivity::class.java)
+            startActivity(intent)
         }
     }
 

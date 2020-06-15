@@ -1,4 +1,4 @@
-package com.example.ourgithubcontributions.ui
+package com.example.ourgithubcontributions.ui.adapter
 
 import android.util.Log
 import android.view.LayoutInflater

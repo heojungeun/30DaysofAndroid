@@ -7,4 +7,5 @@
     <color name="colorSecond">#7bc96f</color>
     <color name="colorThird">#239a3b</color>
     <color name="colorAccent">#196127</color>
+    <color name="colorWGray">#CECECE</color>
 </resources>

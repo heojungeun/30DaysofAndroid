@@ -9,7 +9,7 @@ import com.example.ourgithubcontributions.SharedPreferenceManager
 import com.example.ourgithubcontributions.extension.Converter
 import com.example.ourgithubcontributions.data.model.ContributionsDay
 import com.example.ourgithubcontributions.extension.toast
-import com.example.ourgithubcontributions.ui.DateContributionsAdapter
+import com.example.ourgithubcontributions.ui.adapter.DateContributionsAdapter
 import com.example.ourgithubcontributions.ui.MainActivity
 import retrofit2.Call
 import retrofit2.Callback
@@ -62,7 +62,8 @@ class RetrofitPresenter{
         cbList: List<ContributionsDay>
     ) {
 
-        val adapter = DateContributionsAdapter()
+        val adapter =
+            DateContributionsAdapter()
 
         adapter.weekCount = cbList.size / 7 + 1
         adapter.setEndDay(cbList.last().day)

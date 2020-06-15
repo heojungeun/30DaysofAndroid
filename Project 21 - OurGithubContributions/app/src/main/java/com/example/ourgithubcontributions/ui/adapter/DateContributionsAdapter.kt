@@ -1,4 +1,4 @@
-package com.example.ourgithubcontributions.ui
+package com.example.ourgithubcontributions.ui.adapter
 
 /**
  * https://github.com/barryhappy
@@ -8,7 +8,6 @@ package com.example.ourgithubcontributions.ui
  * Comment line 42
  */
 
-import android.util.Log
 import com.barryzhang.tcontributionsview.adapter.BaseContributionsViewAdapter
 import java.text.DateFormat
 import java.text.ParseException
