@@ -16,6 +16,9 @@ interface CbDao {
     @Delete
     fun delete(user: User?)
 
+    @Query("DELETE FROM User WHERE username in (:list)")
+    fun deleteItems(list: List<User>)
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertUser(user: User)
 

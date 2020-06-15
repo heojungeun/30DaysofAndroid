@@ -8,5 +8,6 @@ interface CbRepository {
     fun getAll(): LiveData<List<User>>
     fun deleteAll()
     fun delete(user: User)
+    fun deleteItems(list: List<User>)
     fun insertUser(user: User)
 }

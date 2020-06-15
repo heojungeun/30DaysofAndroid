@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.ourgithubcontributions.MyApplication
 import com.example.ourgithubcontributions.data.model.User
 
-@Database(entities = [User::class], version = 1, exportSchema = false)
+@Database(entities = [User::class], version = 2, exportSchema = false)
 abstract class CbDatabase: RoomDatabase() {
     abstract fun cbDao(): CbDao
 

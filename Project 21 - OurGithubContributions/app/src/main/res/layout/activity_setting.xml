@@ -9,6 +9,7 @@
         android:id="@+id/layout_header"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
         android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:src="@drawable/ic_chevron_left_black_35dp" />
+            android:src="@drawable/ic_chevron_left_white_35dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -27,7 +28,7 @@
             android:layout_gravity="center"
             android:fontFamily="@font/titilliumwebregular"
             android:text="Preferences"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textSize="20sp" />
 
     </FrameLayout>
@@ -102,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/titilliumwebregular"
                 android:padding="3dp"
-                android:text="Logout Please type Your username to confirm."
+                android:text="Please type Your username to confirm."
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="12sp" />
 
