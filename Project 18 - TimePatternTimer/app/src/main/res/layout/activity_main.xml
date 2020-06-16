@@ -35,25 +35,32 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/seekbar"/>
+        app:layout_constraintBottom_toTopOf="@+id/seekbarlayout"/>
 
-    <me.tankery.lib.circularseekbar.CircularSeekBar
-        android:id="@+id/seekbar"
-        style="?android:attr/borderlessButtonStyle"
-        android:layout_width="300dp"
+    <FrameLayout
+        android:id="@+id/seekbarlayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cs_circle_color="@android:color/white"
-        app:cs_circle_progress_color="@color/colorAccent"
-        app:cs_circle_stroke_width="120dp"
-        app:cs_circle_style="butt"
-        app:cs_disable_progress_glow="true"
-        app:cs_max="3600"
-        app:cs_pointer_color="@color/colorAccent"
-        app:cs_pointer_stroke_width="120dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <me.tankery.lib.circularseekbar.CircularSeekBar
+            android:id="@+id/seekbar"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            app:cs_circle_color="@android:color/white"
+            app:cs_circle_progress_color="@color/colorAccent"
+            app:cs_circle_stroke_width="120dp"
+            app:cs_circle_style="butt"
+            app:cs_max="3600"
+            app:cs_negative_enabled="false"
+            app:cs_pointer_color="@color/colorAccent"
+            app:cs_pointer_stroke_width="120dp" />
+
+    </FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -62,7 +69,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/seekbar">
+        app:layout_constraintTop_toBottomOf="@id/seekbarlayout">
 
         <Button
             android:id="@+id/cancelbtn"

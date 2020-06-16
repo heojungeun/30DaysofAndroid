@@ -1,224 +1,231 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp">
-
-        <Button
-            android:id="@+id/btn_back"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:text="취소"
-            android:textColor="@color/colorAccent"
-            android:textSize="17sp" />
-
-        <Button
-            android:id="@+id/btn_save"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|center_vertical"
-            android:background="@color/colorAccent"
-            android:text="저장"
-            android:textColor="@android:color/white"
-            android:textSize="17sp" />
-
-    </FrameLayout>
+    <data>
+        <variable
+            name="vm"
+            type="com.example.timepatterntimer.StateViewModel" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:paddingTop="10dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+
+            <Button
+                android:id="@+id/btn_back"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="취소"
+                android:textColor="@color/colorAccent"
+                android:textSize="17sp" />
+
+            <Button
+                android:id="@+id/btn_save"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:background="@color/colorAccent"
+                android:text="저장"
+                android:textColor="@android:color/white"
+                android:textSize="17sp" />
+
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/round_pre_group"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:orientation="vertical"
-            android:padding="20dp">
-
-            <TextView
-                android:id="@+id/pre_lbl_break"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="3dp"
-                android:text="쉬는 시간 포함"
-                android:textStyle="bold"
-                android:textColor="@android:color/black" />
+            android:paddingTop="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/round_pre_group"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/pre_lbl_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="현재 상태"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black" />
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/right_line"
-                    android:orientation="vertical"
-                    android:padding="10dp">
+                    android:orientation="horizontal"
+                    android:padding="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                    <TextView
+                        android:text="쉬는 시간 : "
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/pre_cur_break_text"
+                        android:text="@{vm.BTString}"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"
+                        android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:background="@drawable/bottom_line"
-                        android:paddingBottom="5dp">
+                        android:layout_height="wrap_content"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:text="1 분" />
+                    <TextView
+                        android:text="패턴 횟수 : "
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
 
-                        <RadioButton
-                            android:id="@+id/rb_1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="end|center_vertical" />
-
-                    </FrameLayout>
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:text="10 분" />
-
-                        <RadioButton
-                            android:id="@+id/rb_10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="end|center_vertical" />
-
-                    </FrameLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                    <TextView
+                        android:id="@+id/pre_cur_pat_text"
+                        android:text="@{vm.PNString}"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/black"
+                        android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:background="@drawable/bottom_line"
-                        android:paddingBottom="5dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:text="5 분" />
-
-                        <RadioButton
-                            android:id="@+id/rb_5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="end|center_vertical" />
-
-                    </FrameLayout>
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:text="15 분" />
-
-                        <RadioButton
-                            android:id="@+id/rb_15"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="end|center_vertical" />
-
-                    </FrameLayout>
+                        android:layout_height="wrap_content"/>
 
                 </LinearLayout>
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/btn_break"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginTop="15dp"
-                android:layout_weight="1"
-                android:background="@drawable/round_btn_pre"
-                android:text="적용"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/round_pre_group"
-            android:orientation="horizontal"
-            android:padding="20dp">
-
-            <TextView
-                android:id="@+id/pre_lbl_pat"
-                android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:padding="3dp"
-                android:text="패턴 횟수"
-                android:textStyle="bold"
-                android:textColor="@android:color/black" />
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/round_pre_group"
+                android:orientation="vertical"
+                android:padding="20dp">
 
-            <EditText
-                android:id="@+id/editText"
-                android:layout_width="60dp"
-                android:layout_height="45dp"
-                android:ems="10"
-                android:layout_gravity="end|center_vertical"
-                android:inputType="number"
-                android:padding="10dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/round_edt"/>
+                <TextView
+                    android:id="@+id/pre_lbl_break"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="쉬는 시간 포함"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black" />
 
-            <Button
-                android:id="@+id/btn_pat"
-                android:layout_width="wrap_content"
-                android:layout_height="45dp"
-                android:background="@drawable/round_btn_pre"
-                android:text="적용"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white"
-                android:layout_gravity="end|center_vertical"/>
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <RadioButton
+                        android:id="@+id/rb_1"
+                        android:text="1 분"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical" />
+
+                    <RadioButton
+                        android:id="@+id/rb_10"
+                        android:text="5 분"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical" />
+
+                    <RadioButton
+                        android:id="@+id/rb_5"
+                        android:text="10 분"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical" />
+
+                    <RadioButton
+                        android:id="@+id/rb_15"
+                        android:text="15 분"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical" />
+
+                </RadioGroup>
+
+                <Button
+                    android:id="@+id/btn_break"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_btn_pre"
+                    android:text="적용"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/round_pre_group"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/pre_lbl_pat"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:padding="3dp"
+                    android:text="패턴 횟수"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/pre_pat_edt"
+                    android:layout_width="60dp"
+                    android:layout_height="45dp"
+                    android:ems="10"
+                    android:layout_gravity="end|center_vertical"
+                    android:inputType="number"
+                    android:padding="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/round_edt"/>
+
+                <Button
+                    android:id="@+id/btn_pat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:background="@drawable/round_btn_pre"
+                    android:text="적용"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:layout_gravity="end|center_vertical"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
     </LinearLayout>
-
-</LinearLayout>
+</layout>

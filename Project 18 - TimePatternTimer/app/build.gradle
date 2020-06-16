@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -23,6 +24,10 @@ android {
         }
     }
 
+    dataBinding {
+        enabled true
+    }
+
 }
 
 dependencies {
@@ -36,4 +41,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     // circleSeekbar
     implementation 'me.tankery.lib:circularSeekBar:1.2.0'
+    // databinding
+    kapt 'com.android.databinding:compiler:3.1.4'
 }
