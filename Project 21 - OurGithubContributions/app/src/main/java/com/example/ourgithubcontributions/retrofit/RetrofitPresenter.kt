@@ -69,10 +69,10 @@ class RetrofitPresenter{
         adapter.setEndDay(cbList.last().day)
         cbList.forEach {
             val lev = when (it.color) {
-                "#c6e48b" -> 1
-                "#7bc96f" -> 2
-                "#239a3b" -> 3
-                "#196127" -> 4
+                "#9be9a8" -> 1
+                "#40c463" -> 2
+                "#30a14e" -> 3
+                "#216e39" -> 4
                 else -> 0
             }
             adapter.put(it.day, lev)

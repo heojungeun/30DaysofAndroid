@@ -17,7 +17,8 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp">
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="20dp">
 
             <Button
                 android:id="@+id/btn_back"
@@ -83,7 +84,7 @@
 
                     <TextView
                         android:id="@+id/pre_cur_break_text"
-                        android:text="@{vm.BTString}"
+                        android:text="0 분"
                         android:textStyle="bold"
                         android:textColor="@android:color/black"
                         android:layout_width="0dp"
@@ -99,7 +100,7 @@
 
                     <TextView
                         android:id="@+id/pre_cur_pat_text"
-                        android:text="@{vm.PNString}"
+                        android:text="0 번"
                         android:textStyle="bold"
                         android:textColor="@android:color/black"
                         android:layout_width="0dp"

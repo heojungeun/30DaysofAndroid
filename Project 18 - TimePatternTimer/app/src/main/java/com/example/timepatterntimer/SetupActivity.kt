@@ -3,6 +3,8 @@ package com.example.timepatterntimer
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import com.example.timepatterntimer.databinding.ActivitySetupBinding
 import kotlinx.android.synthetic.main.activity_setup.*
 
 class SetupActivity : AppCompatActivity() {
@@ -25,15 +27,6 @@ class SetupActivity : AppCompatActivity() {
 
         }
 
-        btn_pat.setOnClickListener {
-            val patStr = pre_pat_edt.text.toString()
-            if (patStr.isEmpty()){
-                Toast.makeText(this, "input pattern number", Toast.LENGTH_SHORT).show()
-            }else{
-                vm.setPattern(patStr.toInt())
-            }
-        }
-
         btn_break.setOnClickListener {
             val bTimeId = radioGroup.checkedRadioButtonId
             if (bTimeId == -1){
@@ -48,5 +41,15 @@ class SetupActivity : AppCompatActivity() {
                 vm.setBreak(bTime)
             }
         }
+
+        btn_pat.setOnClickListener {
+            val patStr = pre_pat_edt.text.toString()
+            if (patStr.isEmpty()){
+                Toast.makeText(this, "input pattern number", Toast.LENGTH_SHORT).show()
+            }else{
+                vm.setPattern(patStr.toInt())
+            }
+        }
+
     }
 }
