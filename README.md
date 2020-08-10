@@ -1,8 +1,12 @@
 # 30DaysofAndroid
 
-이 프로젝트는 [allenwong의 30DaysofSwift](https://github.com/allenwong/30DaysofSwift)의 결과화면을 보고 만들거나,
+이 프로젝트는 [allenwong의 30DaysofSwift](https://github.com/allenwong/30DaysofSwift)의 결과화면을 보고 만들거나, 그때 그때 제가 원하는 앱을 만드는 방식으로 진행됩니다.
 
-그때 그때 제가 원하는 앱을 만드는 방식으로 진행됩니다.
+* 만들고 싶은 앱✍️
+  - [ ] 뉴스
+  - [ ] 랜덤 날짜에 질문 알림 뜨는 앱
+  - [ ] 주식 관찰
+  - [ ] 먹고싶은 것들 일기처럼 쓰고, 날짜에 따라 추천 음식리스트 알려주는 앱
 
 ## Project Index & GIF Showcase ##
 
