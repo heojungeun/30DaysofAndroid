@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">firstFCM</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="fcm_message">FCM Message</string>
 </resources>
