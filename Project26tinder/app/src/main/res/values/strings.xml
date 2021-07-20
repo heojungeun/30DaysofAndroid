@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Project 26 - tinder</string>
+    <string name="facebook_app_id">199878902076045</string>
+    <string name="fb_login_protocol_scheme">fb199878902076045</string>
 </resources>
